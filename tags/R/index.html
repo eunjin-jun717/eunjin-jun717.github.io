@@ -6,25 +6,17 @@
     
 
     
-    <title>visualization | Eunjin&#39;s Blog</title>
+    <title>Tag: r | Eunjin&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="" />
-    
-    <meta name="description" content="간단하게 시각화 하는 과정 step1) 패키지 설치1install.packages(&quot;ggplot2&quot;) step2) 패키지 불러오기1library(ggplot2) step3) 데이터 불러오기1data(&quot;iris&quot;) step4) 데이터 확인하기1str(iris) step5) 가공되지 않은 Raw data 가공하기 step6)">
-<meta property="og:type" content="article">
-<meta property="og:title" content="visualization">
-<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/22/visualization/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Eunjin&#39;s Blog">
+<meta property="og:url" content="https://eunjin-jun717.github.io/tags/r/index.html">
 <meta property="og:site_name" content="Eunjin&#39;s Blog">
-<meta property="og:description" content="간단하게 시각화 하는 과정 step1) 패키지 설치1install.packages(&quot;ggplot2&quot;) step2) 패키지 불러오기1library(ggplot2) step3) 데이터 불러오기1data(&quot;iris&quot;) step4) 데이터 확인하기1str(iris) step5) 가공되지 않은 Raw data 가공하기 step6)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://eunjin-jun717.github.io/2021/03/22/visualization/Images/iris_data.png">
-<meta property="article:published_time" content="2021-03-22T13:09:02.000Z">
-<meta property="article:modified_time" content="2021-03-24T00:02:42.257Z">
 <meta property="article:author" content="Eunjin Jun">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://eunjin-jun717.github.io/2021/03/22/visualization/Images/iris_data.png">
     
 
     
@@ -151,178 +143,137 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    uncategorized
+    <i class="icon fa fa-tag"></i>Tag: <em>r</em>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-visualization" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2021" class="archive-year"><i class="icon fa fa-calendar-o"></i>2021</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2021/03/23/R-edu2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/sample2.png)" alt="R-edu2" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://eunjin-jun717.github.io/2021/03/23/R-edu2/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2021-03-23T13:53:23.000Z" itemprop="datePublished">2021-03-23</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        visualization
+        <a href="/2021/03/23/R-edu2/">R-edu2</a>
         </h1>
     
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/2021/03/22/visualization/" class="article-date">
-       <time datetime="2021-03-22T13:09:02.000Z" itemprop="datePublished">2021-03-22</time>
-    </a>
-  </div>
-
-
-<div class="article-date">
-  <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/03/22/visualization/" class="article-date">
-     <time datetime="2021-03-24T00:02:42.257Z" itemprop="dateModified">2021-03-24</time>
-  </a>
-</div>
-
-
-                
-
-                
-                
-
-                
-
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
+        <p class="article-excerpt">
             
+counties visualization practice파일 불러오기1getwd()
+get working directory 라는 뜻으로 현재 위치를 알려준다.
+1setwd(&#x27;R_NCS_2020/1_day/&#x27;)
+set as working directory 라는 뜻으로 위치를 새로 설정할 수 있다. 
+###dplyr 설치 방법 2가지
 
-            
-
-            
-
-            <h2 id="간단하게-시각화-하는-과정"><a href="#간단하게-시각화-하는-과정" class="headerlink" title="간단하게 시각화 하는 과정"></a>간단하게 시각화 하는 과정</h2><ul>
-<li>step1) 패키지 설치<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;ggplot2&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-<li>step2) 패키지 불러오기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br></pre></td></tr></table></figure></li>
-<li>step3) 데이터 불러오기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data(<span class="string">&quot;iris&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-<li>step4) 데이터 확인하기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(iris)</span><br></pre></td></tr></table></figure></li>
-<li>step5) 가공되지 않은 Raw data 가공하기</li>
-<li>step6) 시각화하기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ggplot(data=iris, </span><br><span class="line">       mapping = aes(x = Petal.Length, </span><br><span class="line">                     y = Petal.Width,</span><br><span class="line">                     colour = Species)) +</span><br><span class="line">  geom_point(size=<span class="number">3</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>*tap 누르면 자동입력기능 있음.<br>*help에서 ggplot sample 확인 가능.</p>
-<p><img src="Images/iris_data.png"></p>
-
-        </div>
-        <footer class="article-footer">
-            
-
-
-
-    <a data-url="https://eunjin-jun717.github.io/2021/03/22/visualization/" data-id="ckmlahkt00001h0vtc5nhcsj5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-        </footer>
+me
+        </p>
     </div>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "author": {
-            "@type": "Person",
-            "name": "Eunjin Jun"
-        },
-        "headline": "visualization",
-        "image": "https://eunjin-jun717.github.ioImages/iris_data.png",
-        "keywords": "",
-        "genre": "",
-        "datePublished": "2021-03-22",
-        "dateCreated": "2021-03-22",
-        "dateModified": "2021-03-24",
-        "url": "https://eunjin-jun717.github.io/2021/03/22/visualization/",
-        "description": "간단하게 시각화 하는 과정
-step1) 패키지 설치1install.packages(&quot;ggplot2&quot;)
-step2) 패키지 불러오기1library(ggplot2)
-step3) 데이터 불러오기1data(&quot;iris&quot;)
-step4) 데이터 확인하기1str(iris)
-step5) 가공되지 않은 Raw data 가공하기
-step6)",
-        "wordCount": 136
-    }
-</script>
-
 </article>
+    
 
-    <section id="comments">
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2021/03/23/R-edu1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/sample.png)" alt="R_edu1" class="thumbnail-image"></span>
+    
     
         
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://eunjin-jun717.github.io/2021/03/23/R-edu1/">0</span>
+    
+</span>
 
 
     
-    </section>
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            
+            </div>
+            <div class="date"><time datetime="2021-03-23T13:06:56.000Z" itemprop="datePublished">2021-03-23</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2021/03/23/R-edu1/">R_edu1</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+R 코딩 기초실행방법
+Windows: Ctrl + Enter
+Mac: Command + Enter
+
+변수 저장 시1&lt;- 
+Alt + - key 누르면 된다. 
+변수 호출 시12print(x) #혹은x 
+
+변수 종류변수 type
+숫자형 변수 1my_numeric &lt;- 17
+문자형 변수 1my_character &lt;- &quot;eunjin&q
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+
+    </div></section>
 
 
 
@@ -384,29 +335,6 @@ step6)",
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2021/03/23/meaning/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            What is the main and branch in Github
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2021/03/22/firstday/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">How to create a blog with Hexo</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         
@@ -611,13 +539,11 @@ step6)",
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/22/visualization/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
