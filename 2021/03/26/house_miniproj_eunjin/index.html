@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>주택 가격: 시각화 예제 | Eunjin&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="참조kaggle: house prices_ project  r chunk에서 message&#x3D;FALSE를 하게 되면 패키지를 불러올때의 관련 메세지가 안보임  12345678910111213library(knitr) # 마크다운 관련 패키지library(ggplot2) # 시각화 패키지library(plyr) # 데이터 분석, 가공 패키지library(dpl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="주택 가격: 시각화 예제">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/26/house_miniproj_eunjin/index.html">
+<meta property="og:site_name" content="Eunjin&#39;s Blog">
+<meta property="og:description" content="참조kaggle: house prices_ project  r chunk에서 message&#x3D;FALSE를 하게 되면 패키지를 불러올때의 관련 메세지가 안보임  12345678910111213library(knitr) # 마크다운 관련 패키지library(ggplot2) # 시각화 패키지library(plyr) # 데이터 분석, 가공 패키지library(dpl">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://eunjin-jun717.github.io/2021/03/26/house_miniproj_eunjin/house_miniproj_eunjin_files/figure-html/unnamed-chunk-6-1.png">
+<meta property="article:published_time" content="2021-03-26T00:01:46.104Z">
+<meta property="article:modified_time" content="2021-03-26T00:03:48.399Z">
+<meta property="article:author" content="Eunjin Jun">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/2021/03/26/house_miniproj_eunjin/house_miniproj_eunjin_files/figure-html/unnamed-chunk-6-1.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Eunjin&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-house_miniproj_eunjin" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        주택 가격: 시각화 예제
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/03/26/house_miniproj_eunjin/" class="article-date">
+       <time datetime="2021-03-26T00:01:46.104Z" itemprop="datePublished">2021-03-26</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/03/26/house_miniproj_eunjin/" class="article-date">
+     <time datetime="2021-03-26T00:03:48.399Z" itemprop="dateModified">2021-03-26</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h3 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h3><p><a target="_blank" rel="noopener" href="https://www.kaggle.com/erikbruin/house-prices-lasso-xgboost-and-a-detailed-eda">kaggle: house prices_ project</a></p>
+<ul>
+<li>r chunk에서 message=FALSE를 하게 되면 패키지를 불러올때의 관련 메세지가 안보임</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">library(knitr) <span class="comment"># 마크다운 관련 패키지</span></span><br><span class="line">library(ggplot2) <span class="comment"># 시각화 패키지</span></span><br><span class="line">library(plyr) <span class="comment"># 데이터 분석, 가공 패키지</span></span><br><span class="line">library(dplyr) <span class="comment"># 데이터 가공 패키지</span></span><br><span class="line">library(corrplot) <span class="comment"># 상관행렬과 신뢰구간의 그래프</span></span><br><span class="line">library(caret) <span class="comment"># 전처리, 모형 시각화</span></span><br><span class="line">library(gridExtra) <span class="comment"># 시각화 이미지 분할</span></span><br><span class="line">library(scales) <span class="comment"># ggplot2에 의해 사용된 scaling 인프라 제공</span></span><br><span class="line">library(Rmisc) <span class="comment"># 데이터 분석, 유틸리티 동작</span></span><br><span class="line">library(ggrepel) <span class="comment"># 겹치는 텍스트 레이블 제거</span></span><br><span class="line">library(randomForest) <span class="comment"># 분류와 회귀를 위해 Breiman의 random forest algorithm 구현</span></span><br><span class="line">library(psych) <span class="comment"># 기술통계량 구해주는 패키지</span></span><br><span class="line"><span class="comment">#library(xgboost) # 머신러닝 패키지</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>R로 train.csv파일과 test.csv파일을 부름</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train &lt;-read.csv(<span class="string">&quot;train.csv&quot;</span>, stringsAsFactors = <span class="built_in">F</span>)</span><br><span class="line">test &lt;- read.csv(<span class="string">&quot;test.csv&quot;</span>, stringsAsFactors = <span class="built_in">F</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dim</span>(train) <span class="comment"># train의 데이터프레임 길이</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [1] 1460   81</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(train[,<span class="built_in">c</span>(<span class="number">1</span>:<span class="number">10</span>, <span class="number">81</span>)]) <span class="comment"># 처음 10개의 변수와 response variable</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">## &#39;data.frame&#39;:	1460 obs. of  11 variables:</span><br><span class="line">##  $ Id         : int  1 2 3 4 5 6 7 8 9 10 ...</span><br><span class="line">##  $ MSSubClass : int  60 20 60 70 60 50 20 60 50 190 ...</span><br><span class="line">##  $ MSZoning   : chr  &quot;RL&quot; &quot;RL&quot; &quot;RL&quot; &quot;RL&quot; ...</span><br><span class="line">##  $ LotFrontage: int  65 80 68 60 84 85 75 NA 51 50 ...</span><br><span class="line">##  $ LotArea    : int  8450 9600 11250 9550 14260 14115 10084 10382 6120 7420 ...</span><br><span class="line">##  $ Street     : chr  &quot;Pave&quot; &quot;Pave&quot; &quot;Pave&quot; &quot;Pave&quot; ...</span><br><span class="line">##  $ Alley      : chr  NA NA NA NA ...</span><br><span class="line">##  $ LotShape   : chr  &quot;Reg&quot; &quot;Reg&quot; &quot;IR1&quot; &quot;IR1&quot; ...</span><br><span class="line">##  $ LandContour: chr  &quot;Lvl&quot; &quot;Lvl&quot; &quot;Lvl&quot; &quot;Lvl&quot; ...</span><br><span class="line">##  $ Utilities  : chr  &quot;AllPub&quot; &quot;AllPub&quot; &quot;AllPub&quot; &quot;AllPub&quot; ...</span><br><span class="line">##  $ SalePrice  : int  208500 181500 223500 140000 250000 143000 307000 200000 129900 118000 ...</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test_labels &lt;- test$Id <span class="comment"># 테스트 Id는 test_labels에 저장</span></span><br><span class="line">test$Id &lt;- <span class="literal">NULL</span></span><br><span class="line">train$Id &lt;- <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test$SalePrice &lt;- <span class="literal">NA</span> <span class="comment"># Not Available 결측치, NULL은 출력되지 않지만 NA는 출력됨</span></span><br><span class="line">all &lt;- rbind(train, test) <span class="comment"># train과 test 결합</span></span><br><span class="line"><span class="built_in">dim</span>(<span class="built_in">all</span>) <span class="comment"># 결합된 것을 all이라하며 데이터 프레임 길이 구함</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [1] 2919   80</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Id가 없으므로 (데이터프레임 = 79개의 예측변수들 + SalePrice 인 response 변수)</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ggplot(data = <span class="built_in">all</span>[!<span class="built_in">is.na</span>(<span class="built_in">all</span>$SalePrice),], <span class="comment">#SalePrice에 결측값인 NA가 포함되어있는지 확인함</span></span><br><span class="line">       <span class="comment"># 이때 결측값이 아닌 SalePrice 만 선택</span></span><br><span class="line">       aes(x= SalePrice))+    <span class="comment"># x축 : SalePrice</span></span><br><span class="line">  geom_histogram(fill=<span class="string">&quot;blue&quot;</span>, binwidth = <span class="number">10000</span>)+  <span class="comment"># 히스토그램으로 표현, bar은 blue, bar의 두께는 10000으로 설정</span></span><br><span class="line">  scale_x_continuous(breaks=seq(<span class="number">0</span>, <span class="number">800000</span>, by=<span class="number">100000</span>), <span class="comment"># x축의 범위는 0~800000, 100000단위로 끊어줌</span></span><br><span class="line">                     labels= comma) <span class="comment"># 숫자 3자리마다 &#x27;,&#x27; 넣음</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="house_miniproj_eunjin_files/figure-html/unnamed-chunk-6-1.png"><!-- --></p>
+<ul>
+<li>히스토그램을 보면 좌측으로 치우쳐져 있다.<br>이 말은 SalePrice가 낮은 집이 잘 팔린다는 뜻이고, SalePrice가 높은 집은 사는 사람이 거의 없다는 것을 의미한다. </li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary(<span class="built_in">all</span>$SalePrice)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s </span><br><span class="line">##   34900  129975  163000  180921  214000  755000    1459</span><br></pre></td></tr></table></figure>
+<ul>
+<li>SalePrice의 최저가격: 34,900, 최고가격: 755,000,<br>1사 분위수(1st Qu): 129,975 =&gt; 오름차순으로 정렬했을 때, 하위 25%의 SalePrice<br>중앙값(Median): 163,000 =&gt; 오름차순으로 정렬했을 때, 중앙에 있는 값인 SalePrice<br>평균값(Mean): 180,921 =&gt; SalePrice의 평균<br>1사 분위수(3rd Qu): 214,000 =&gt; 오름차순으로 정렬했을 때, 상위 25%의 SalePrice<br>NA’s : 결측값</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">numericVars &lt;- which(sapply(<span class="built_in">all</span>, <span class="built_in">is.numeric</span>)) <span class="comment"># numeric 변수들의 위치를 찾는데 그 결과를 벡터 또는 행렬로 반환</span></span><br><span class="line">numericVarNames &lt;- <span class="built_in">names</span>(numericVars) <span class="comment"># 저장된 numeric 변수들인 numericVars로 변수명 변경된 것을 Name벡터인 numericVarNames로 저장</span></span><br><span class="line">cat(<span class="string">&#x27;There are&#x27;</span>, <span class="built_in">length</span>(numericVars), <span class="string">&#x27;numeric variables&#x27;</span>) <span class="comment">#cat함수는 행을 바꾸지 않음</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## There are 37 numeric variables</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#numericVars의 갯수를 출력함</span></span><br><span class="line"></span><br><span class="line">all_numVar &lt;- <span class="built_in">all</span>[, numericVars] <span class="comment"># numericVars의 데이터들을 &#x27;all_numVar&#x27;에 저장 (numericVars는 그냥 벡터일뿐, 데이터프레임이 아님)</span></span><br><span class="line">cor_numVar &lt;- cor(all_numVar, use=<span class="string">&quot;pairwise.complete.obs&quot;</span>) <span class="comment"># all_numVar들의 상관관계를 저장</span></span><br><span class="line"><span class="comment"># use=&quot;pairwise.complete.obs&quot; =&gt; 결측치가 포함된 데이터에서 상관관계를 구하기 위해 사용</span></span><br><span class="line"></span><br><span class="line">cor_sorted &lt;- as.matrix(sort(cor_numVar[, <span class="string">&#x27;SalePrice&#x27;</span>], decreasing = <span class="literal">TRUE</span>)) <span class="comment"># SalePrice와의 상관관계만을 내림차순으로 정렬한 뒤 행렬로 변환한 것을 cor_sorted 행렬에 저장</span></span><br><span class="line">CorHigh &lt;- <span class="built_in">names</span>(which(apply(cor_sorted, <span class="number">1</span>, <span class="keyword">function</span>(x) <span class="built_in">abs</span>(x)&gt;<span class="number">0.5</span>))) <span class="comment"># 1:행, 2:열,  function(x) &#123; abs (x)&#125;</span></span><br><span class="line"><span class="comment"># 행단위로 SalePrice의 상관관계를 절댓값 형태로 취한 뒤 0.5 이상의 값만 추출함</span></span><br><span class="line"><span class="comment"># 추출된 것들의 변수명을 변경하고 CorHigh에 저장 =&gt; 0.5이상의 상관관계는 &quot;관련이 높다&quot;라는 의미</span></span><br><span class="line">cor_numVar &lt;- cor_numVar[CorHigh, CorHigh] <span class="comment"># 0.5이상의 상관관계를 가진 값들로만 cor_numVar에 다시 저장</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tl.col(text legend color은 black), tl.pos(text legend position은 left와 top)</span></span><br><span class="line"><span class="comment"># corrplot.mixed 함수: 시각화 방법을 혼합할 때 사용</span></span><br><span class="line">corrplot.mixed(cor_numVar, tl.col= <span class="string">&quot;black&quot;</span>, tl.pos=<span class="string">&quot;lt&quot;</span>) <span class="comment">#tl: text legend, cl: color legend</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="house_miniproj_eunjin_files/figure-html/unnamed-chunk-8-1.png"><!-- --></p>
+<ul>
+<li><p>상관관계가 0.5이상인 데이터들을 봤을 때, SalePrice와 가장 높은 상관관계를 가지는 것은 “OverallQual”인 전반적인 품질이었다. =&gt; 0.791</p>
+</li>
+<li><p>독립변수들 간에 강한 상관관계가 나타나는 문제를 multicollinearity (다중공선성)라고 하는데 이것이 문제인 것으로 보인다. </p>
+</li>
+</ul>
+<ol>
+<li>SalePrice와 가장 상관관계가 높은 OverallQual를 제외하고 다음으로 높은 GrLivArea 와 GarageCars 사이의 상관관계를 보았을 때 매우 높은 0.8897 이다. 즉, 독립변수들 간의 강한 상관관계를 나타낸다. </li>
+<li>상관관계가 0.5 이상인 높은 상관관계를 가진 변수는 나머지 6개가 있다.<br>TotalBsmtSF, 1stFlrSF, FullBath, TotRmsAbvGrd, YearBuilt, YearRemodAdd</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://eunjin-jun717.github.io/2021/03/26/house_miniproj_eunjin/" data-id="ckmpjl80e0000xovt24ye2muj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Eunjin Jun"
+        },
+        "headline": "주택 가격: 시각화 예제",
+        "image": "https://eunjin-jun717.github.iohouse_miniproj_eunjin_files/figure-html/unnamed-chunk-6-1.png",
+        "keywords": "",
+        "genre": "",
+        "datePublished": "2021-03-26",
+        "dateCreated": "2021-03-26",
+        "dateModified": "2021-03-26",
+        "url": "https://eunjin-jun717.github.io/2021/03/26/house_miniproj_eunjin/",
+        "description": "참조kaggle: house prices_ project
+
+r chunk에서 message=FALSE를 하게 되면 패키지를 불러올때의 관련 메세지가 안보임
+
+12345678910111213library(knitr) # 마크다운 관련 패키지library(ggplot2) # 시각화 패키지library(plyr) # 데이터 분석, 가공 패키지library(dpl",
+        "wordCount": 1036
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/03/23/R-edu2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">R-edu2</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/26/house_miniproj_eunjin/" class="thumbnail">
+    
+    
+        <span style="background-image:url(house_miniproj_eunjin_files/figure-html/unnamed-chunk-6-1.png)" alt="주택 가격: 시각화 예제" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/26/house_miniproj_eunjin/" class="title">주택 가격: 시각화 예제</a></p>
+                            <p class="item-date"><time datetime="2021-03-26T00:01:46.104Z" itemprop="datePublished">2021-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/23/R-edu2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/sample2.png)" alt="R-edu2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/23/R-edu2/" class="title">R-edu2</a></p>
+                            <p class="item-date"><time datetime="2021-03-23T13:53:23.000Z" itemprop="datePublished">2021-03-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/23/R-edu1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/sample.png)" alt="R_edu1" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/23/R-edu1/" class="title">R_edu1</a></p>
+                            <p class="item-date"><time datetime="2021-03-23T13:06:56.000Z" itemprop="datePublished">2021-03-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/23/meaning/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/main_branch.png)" alt="What is the main and branch in Github" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/23/meaning/" class="title">What is the main and branch in Github</a></p>
+                            <p class="item-date"><time datetime="2021-03-23T12:40:58.000Z" itemprop="datePublished">2021-03-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/22/visualization/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/iris_data.png)" alt="visualization" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/22/visualization/" class="title">visualization</a></p>
+                            <p class="item-date"><time datetime="2021-03-22T13:09:02.000Z" itemprop="datePublished">2021-03-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/r/" rel="tag">r</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/r/" style="font-size: 20px;">r</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Eunjin Jun</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/26/house_miniproj_eunjin/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
