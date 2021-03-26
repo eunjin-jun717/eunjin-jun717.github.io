@@ -19,12 +19,12 @@
 <meta property="og:site_name" content="Eunjin&#39;s Blog">
 <meta property="og:description" content="참조kaggle: house prices_ project  r chunk에서 message&#x3D;FALSE를 하게 되면 패키지를 불러올때의 관련 메세지가 안보임  12345678910111213library(knitr) # 마크다운 관련 패키지library(ggplot2) # 시각화 패키지library(plyr) # 데이터 분석, 가공 패키지library(dpl">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://eunjin-jun717.github.io/2021/03/26/house_miniproj_eunjin/hueman_images/mini_proj/unnamed-chunk-6-1.png">
+<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/mini_proj/unnamed-chunk-6-1.png">
 <meta property="article:published_time" content="2021-03-26T00:01:46.104Z">
-<meta property="article:modified_time" content="2021-03-26T07:45:33.375Z">
+<meta property="article:modified_time" content="2021-03-26T08:00:44.226Z">
 <meta property="article:author" content="Eunjin Jun">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://eunjin-jun717.github.io/2021/03/26/house_miniproj_eunjin/hueman_images/mini_proj/unnamed-chunk-6-1.png">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/mini_proj/unnamed-chunk-6-1.png">
     
 
     
@@ -183,7 +183,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/03/26/house_miniproj_eunjin/" class="article-date">
-     <time datetime="2021-03-26T07:45:33.375Z" itemprop="dateModified">2021-03-26</time>
+     <time datetime="2021-03-26T08:00:44.226Z" itemprop="dateModified">2021-03-26</time>
   </a>
 </div>
 
@@ -238,7 +238,7 @@
 
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ggplot(data = <span class="built_in">all</span>[!<span class="built_in">is.na</span>(<span class="built_in">all</span>$SalePrice),], <span class="comment">#SalePrice에 결측값인 NA가 포함되어있는지 확인함</span></span><br><span class="line">       <span class="comment"># 이때 결측값이 아닌 SalePrice 만 선택</span></span><br><span class="line">       aes(x= SalePrice))+    <span class="comment"># x축 : SalePrice</span></span><br><span class="line">  geom_histogram(fill=<span class="string">&quot;blue&quot;</span>, binwidth = <span class="number">10000</span>)+  <span class="comment"># 히스토그램으로 표현, bar은 blue, bar의 두께는 10000으로 설정</span></span><br><span class="line">  scale_x_continuous(breaks=seq(<span class="number">0</span>, <span class="number">800000</span>, by=<span class="number">100000</span>), <span class="comment"># x축의 범위는 0~800000, 100000단위로 끊어줌</span></span><br><span class="line">                     labels= comma) <span class="comment"># 숫자 3자리마다 &#x27;,&#x27; 넣음</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="hueman_images/mini_proj/unnamed-chunk-6-1.png"><!-- --></p>
+<p><img src="/hueman_images/mini_proj/unnamed-chunk-6-1.png"><!-- --></p>
 <ul>
 <li>히스토그램을 보면 좌측으로 치우쳐져 있다.<br>이 말은 SalePrice가 낮은 집이 잘 팔린다는 뜻이고, SalePrice가 높은 집은 사는 사람이 거의 없다는 것을 의미한다. </li>
 </ul>
@@ -254,7 +254,7 @@
 
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#numericVars의 갯수를 출력함</span></span><br><span class="line"></span><br><span class="line">all_numVar &lt;- <span class="built_in">all</span>[, numericVars] <span class="comment"># numericVars의 데이터들을 &#x27;all_numVar&#x27;에 저장 (numericVars는 그냥 벡터일뿐, 데이터프레임이 아님)</span></span><br><span class="line">cor_numVar &lt;- cor(all_numVar, use=<span class="string">&quot;pairwise.complete.obs&quot;</span>) <span class="comment"># all_numVar들의 상관관계를 저장</span></span><br><span class="line"><span class="comment"># use=&quot;pairwise.complete.obs&quot; =&gt; 결측치가 포함된 데이터에서 상관관계를 구하기 위해 사용</span></span><br><span class="line"></span><br><span class="line">cor_sorted &lt;- as.matrix(sort(cor_numVar[, <span class="string">&#x27;SalePrice&#x27;</span>], decreasing = <span class="literal">TRUE</span>)) <span class="comment"># SalePrice와의 상관관계만을 내림차순으로 정렬한 뒤 행렬로 변환한 것을 cor_sorted 행렬에 저장</span></span><br><span class="line">CorHigh &lt;- <span class="built_in">names</span>(which(apply(cor_sorted, <span class="number">1</span>, <span class="keyword">function</span>(x) <span class="built_in">abs</span>(x)&gt;<span class="number">0.5</span>))) <span class="comment"># 1:행, 2:열,  function(x) &#123; abs (x)&#125;</span></span><br><span class="line"><span class="comment"># 행단위로 SalePrice의 상관관계를 절댓값 형태로 취한 뒤 0.5 이상의 값만 추출함</span></span><br><span class="line"><span class="comment"># 추출된 것들의 변수명을 변경하고 CorHigh에 저장 =&gt; 0.5이상의 상관관계는 &quot;관련이 높다&quot;라는 의미</span></span><br><span class="line">cor_numVar &lt;- cor_numVar[CorHigh, CorHigh] <span class="comment"># 0.5이상의 상관관계를 가진 값들로만 cor_numVar에 다시 저장</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tl.col(text legend color은 black), tl.pos(text legend position은 left와 top)</span></span><br><span class="line"><span class="comment"># corrplot.mixed 함수: 시각화 방법을 혼합할 때 사용</span></span><br><span class="line">corrplot.mixed(cor_numVar, tl.col= <span class="string">&quot;black&quot;</span>, tl.pos=<span class="string">&quot;lt&quot;</span>) <span class="comment">#tl: text legend, cl: color legend</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="hueman_images/mini_proj/unnamed-chunk-8-1.png"><!-- --></p>
+<p><img src="/hueman_images/mini_proj/unnamed-chunk-8-1.png"><!-- --></p>
 <ul>
 <li><p>상관관계가 0.5이상인 데이터들을 봤을 때, SalePrice와 가장 높은 상관관계를 가지는 것은 “OverallQual”인 전반적인 품질이었다. =&gt; 0.791</p>
 </li>
@@ -343,7 +343,7 @@
             "name": "Eunjin Jun"
         },
         "headline": "주택 가격: 시각화 예제",
-        "image": "https://eunjin-jun717.github.iohueman_images/mini_proj/unnamed-chunk-6-1.png",
+        "image": "https://eunjin-jun717.github.io/hueman_images/mini_proj/unnamed-chunk-6-1.png",
         "keywords": "",
         "genre": "",
         "datePublished": "2021-03-26",
@@ -494,7 +494,7 @@ r chunk에서 message=FALSE를 하게 되면 패키지를 불러올때의 관련
                             <a href="/2021/03/26/house_miniproj_eunjin/" class="thumbnail">
     
     
-        <span style="background-image:url(hueman_images/mini_proj/unnamed-chunk-6-1.png)" alt="주택 가격: 시각화 예제" class="thumbnail-image"></span>
+        <span style="background-image:url(/hueman_images/mini_proj/unnamed-chunk-6-1.png)" alt="주택 가격: 시각화 예제" class="thumbnail-image"></span>
     
     
 </a>
@@ -514,7 +514,7 @@ r chunk에서 message=FALSE를 하게 되면 패키지를 불러올때의 관련
                             <a href="/2021/03/23/R-edu2/" class="thumbnail">
     
     
-        <span style="background-image:url(hueman_images/sample2.png)" alt="R코딩 기초함수" class="thumbnail-image"></span>
+        <span style="background-image:url(/hueman_images/sample2.png)" alt="R코딩 기초함수" class="thumbnail-image"></span>
     
     
 </a>
@@ -534,7 +534,7 @@ r chunk에서 message=FALSE를 하게 되면 패키지를 불러올때의 관련
                             <a href="/2021/03/23/R-edu1/" class="thumbnail">
     
     
-        <span style="background-image:url(hueman_images/sample.png)" alt="R코딩 기초1" class="thumbnail-image"></span>
+        <span style="background-image:url(/hueman_images/sample.png)" alt="R코딩 기초1" class="thumbnail-image"></span>
     
     
 </a>
@@ -554,7 +554,7 @@ r chunk에서 message=FALSE를 하게 되면 패키지를 불러올때의 관련
                             <a href="/2021/03/23/meaning/" class="thumbnail">
     
     
-        <span style="background-image:url(hueman_images/main_branch.png)" alt="What is the main and branch in Github" class="thumbnail-image"></span>
+        <span style="background-image:url(/hueman_images/main_branch.png)" alt="What is the main and branch in Github" class="thumbnail-image"></span>
     
     
 </a>
