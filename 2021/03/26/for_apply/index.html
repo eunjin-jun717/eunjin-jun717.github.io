@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>apply함수와 for문의 속도 비교 | Eunjin&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="개념 정리apply 함수 apply(X, MARGIN, FUN, …) X: 배열, 매트릭스 Margin: 행(1), 열(2) Fun: 함수  12my.matrx &lt;- matrix(c(1:10, 11:20, 21:30), nrow &#x3D; 10, ncol&#x3D;3) # 행이  10개, 열이 3개인 매트릭스 생성my.matrx  1234567891011##">
+<meta property="og:type" content="article">
+<meta property="og:title" content="apply함수와 for문의 속도 비교">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/26/for_apply/index.html">
+<meta property="og:site_name" content="Eunjin&#39;s Blog">
+<meta property="og:description" content="개념 정리apply 함수 apply(X, MARGIN, FUN, …) X: 배열, 매트릭스 Margin: 행(1), 열(2) Fun: 함수  12my.matrx &lt;- matrix(c(1:10, 11:20, 21:30), nrow &#x3D; 10, ncol&#x3D;3) # 행이  10개, 열이 3개인 매트릭스 생성my.matrx  1234567891011##">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://eunjin-jun717.github.io/2021/03/26/for_apply/Images/for_apply/apply.png">
+<meta property="article:published_time" content="2021-03-26T05:22:42.686Z">
+<meta property="article:modified_time" content="2021-03-26T05:24:00.289Z">
+<meta property="article:author" content="Eunjin Jun">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/2021/03/26/for_apply/Images/for_apply/apply.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Eunjin&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-for_apply" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        apply함수와 for문의 속도 비교
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/03/26/for_apply/" class="article-date">
+       <time datetime="2021-03-26T05:22:42.686Z" itemprop="datePublished">2021-03-26</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/03/26/for_apply/" class="article-date">
+     <time datetime="2021-03-26T05:24:00.289Z" itemprop="dateModified">2021-03-26</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="개념-정리"><a href="#개념-정리" class="headerlink" title="개념 정리"></a>개념 정리</h1><h2 id="apply-함수"><a href="#apply-함수" class="headerlink" title="apply 함수"></a>apply 함수</h2><ul>
+<li>apply(X, MARGIN, FUN, …)</li>
+<li>X: 배열, 매트릭스</li>
+<li>Margin: 행(1), 열(2)</li>
+<li>Fun: 함수<br><img src="Images/for_apply/apply.png" alt="apply()"></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my.matrx &lt;- matrix(<span class="built_in">c</span>(<span class="number">1</span>:<span class="number">10</span>, <span class="number">11</span>:<span class="number">20</span>, <span class="number">21</span>:<span class="number">30</span>), nrow = <span class="number">10</span>, ncol=<span class="number">3</span>) <span class="comment"># 행이  10개, 열이 3개인 매트릭스 생성</span></span><br><span class="line">my.matrx</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">##       [,1] [,2] [,3]</span><br><span class="line">##  [1,]    1   11   21</span><br><span class="line">##  [2,]    2   12   22</span><br><span class="line">##  [3,]    3   13   23</span><br><span class="line">##  [4,]    4   14   24</span><br><span class="line">##  [5,]    5   15   25</span><br><span class="line">##  [6,]    6   16   26</span><br><span class="line">##  [7,]    7   17   27</span><br><span class="line">##  [8,]    8   18   28</span><br><span class="line">##  [9,]    9   19   29</span><br><span class="line">## [10,]   10   20   30</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply(my.matrx, <span class="number">1</span>, <span class="built_in">sum</span>) <span class="comment"># 매트릭스를 행단위 합 계산</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">##  [1] 33 36 39 42 45 48 51 54 57 60</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply(my.matrx, <span class="number">2</span>, <span class="built_in">sum</span>) <span class="comment"># 열단위 합 계산</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [1]  55 155 255</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply(my.matrx, <span class="number">2</span>, <span class="keyword">function</span>(x) <span class="built_in">length</span>(x)) <span class="comment"># 직접 함수를 정의해서 사용 가능</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [1] 10 10 10</span><br></pre></td></tr></table></figure>
+
+<h2 id="lapply-함수"><a href="#lapply-함수" class="headerlink" title="lapply 함수"></a>lapply 함수</h2><ul>
+<li>lapply(X,FUN, …)</li>
+<li>X: 벡터, 리스트<br><img src="Images/for_apply/lapply.png" alt="lapply()"></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vec &lt;- <span class="built_in">c</span>(<span class="number">1</span>:<span class="number">10</span>)</span><br><span class="line">vec</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">##  [1]  1  2  3  4  5  6  7  8  9 10</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lapply(vec, <span class="built_in">sum</span>) <span class="comment">#list 형태로 나옴</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">## [[1]]</span><br><span class="line">## [1] 1</span><br><span class="line">## </span><br><span class="line">## [[2]]</span><br><span class="line">## [1] 2</span><br><span class="line">## </span><br><span class="line">## [[3]]</span><br><span class="line">## [1] 3</span><br><span class="line">## </span><br><span class="line">## [[4]]</span><br><span class="line">## [1] 4</span><br><span class="line">## </span><br><span class="line">## [[5]]</span><br><span class="line">## [1] 5</span><br><span class="line">## </span><br><span class="line">## [[6]]</span><br><span class="line">## [1] 6</span><br><span class="line">## </span><br><span class="line">## [[7]]</span><br><span class="line">## [1] 7</span><br><span class="line">## </span><br><span class="line">## [[8]]</span><br><span class="line">## [1] 8</span><br><span class="line">## </span><br><span class="line">## [[9]]</span><br><span class="line">## [1] 9</span><br><span class="line">## </span><br><span class="line">## [[10]]</span><br><span class="line">## [1] 10</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A &lt;- <span class="built_in">c</span>(<span class="number">1</span>:<span class="number">9</span>)</span><br><span class="line">B &lt;- <span class="built_in">c</span>(<span class="number">1</span>:<span class="number">12</span>)</span><br><span class="line">C &lt;- <span class="built_in">c</span>(<span class="number">1</span>:<span class="number">15</span>)</span><br><span class="line">my.lst &lt;- <span class="built_in">list</span>(A,B,C)</span><br><span class="line"></span><br><span class="line">lapply(my.lst, <span class="built_in">sum</span>) <span class="comment"># 각 list 안의 값들의 합</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">## [[1]]</span><br><span class="line">## [1] 45</span><br><span class="line">## </span><br><span class="line">## [[2]]</span><br><span class="line">## [1] 78</span><br><span class="line">## </span><br><span class="line">## [[3]]</span><br><span class="line">## [1] 120</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="sapply-함수"><a href="#sapply-함수" class="headerlink" title="sapply 함수"></a>sapply 함수</h2><ul>
+<li>sapply(X,FUN,…,simplify=TRUE, USE.NAMES=TRUE) </li>
+<li>lapply와 같은 동작을 하지만, 가능하면 출력을 단순화 시키는 함수</li>
+<li>simplify=TRUE : 출력을 단순화시킴, simplify=FALSE : 단순화 시키지 않음</li>
+<li>USE.NAMES=TRUE : 이름 속성도 반환, USE.NAMES=FALSE : 이름 속성 없이 반환</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sapply(vec, <span class="built_in">sum</span>, simplify=<span class="literal">FALSE</span>) <span class="comment"># 출력을 단순화 하지 않으므로 리스트 형태로 출력</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">## [[1]]</span><br><span class="line">## [1] 1</span><br><span class="line">## </span><br><span class="line">## [[2]]</span><br><span class="line">## [1] 2</span><br><span class="line">## </span><br><span class="line">## [[3]]</span><br><span class="line">## [1] 3</span><br><span class="line">## </span><br><span class="line">## [[4]]</span><br><span class="line">## [1] 4</span><br><span class="line">## </span><br><span class="line">## [[5]]</span><br><span class="line">## [1] 5</span><br><span class="line">## </span><br><span class="line">## [[6]]</span><br><span class="line">## [1] 6</span><br><span class="line">## </span><br><span class="line">## [[7]]</span><br><span class="line">## [1] 7</span><br><span class="line">## </span><br><span class="line">## [[8]]</span><br><span class="line">## [1] 8</span><br><span class="line">## </span><br><span class="line">## [[9]]</span><br><span class="line">## [1] 9</span><br><span class="line">## </span><br><span class="line">## [[10]]</span><br><span class="line">## [1] 10</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sapply(vec, <span class="built_in">sum</span>) <span class="comment"># 출력을 단순화시킴 </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">##  [1]  1  2  3  4  5  6  7  8  9 10</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sapply(my.lst, <span class="built_in">sum</span>) <span class="comment"># 벡터를 반환</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [1]  45  78 120</span><br></pre></td></tr></table></figure>
+
+<h2 id="vapply-함수"><a href="#vapply-함수" class="headerlink" title="vapply 함수"></a>vapply 함수</h2><ul>
+<li>vapply(X,FUN,FUN.VALUE,…,USE.NAMES=TRUE)</li>
+<li>value로 예상되는 데이터 유형을 지정해야함</li>
+<li>FUN.VALUE: 자료형 지정</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vapply(vec, <span class="built_in">sum</span>, numeric(<span class="number">1</span>)) <span class="comment"># 1개의 숫자데이터만 들어감</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">##  [1]  1  2  3  4  5  6  7  8  9 10</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vapply(my.lst, <span class="built_in">sum</span>, numeric(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [1]  45  78 120</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#vapply(my.lst, function(x) x, numeric(1)) </span></span><br><span class="line"><span class="comment">#1개의 데이터만 들어갈 수 있는데 함수의 결과는 9개가 나오므로 error뜸</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="tapply-함수"><a href="#tapply-함수" class="headerlink" title="tapply 함수"></a>tapply 함수</h2><ul>
+<li>tapply(X, INDEX, FUN=NULL, …, DEFAULT=NA,SIMPLIFY=TRUE)</li>
+<li>그룹별로 처리함</li>
+<li>factor형으로 인자를 줌</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tdata &lt;- as.data.frame(cbind(<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>), my.matrx)) <span class="comment"># 열단위로 결합시킴</span></span><br><span class="line">colnames(tdata) <span class="comment"># tdata의 열 이름</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## [1] &quot;V1&quot; &quot;V2&quot; &quot;V3&quot; &quot;V4&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tapply(tdata$V2, tdata$V1, <span class="built_in">sum</span>) <span class="comment"># V1: index </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##  1  2 </span><br><span class="line">## 15 40</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># index가 1인 그룹으로 sum되고, index가 2인 그룹을 sum함</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="mapply-함수"><a href="#mapply-함수" class="headerlink" title="mapply 함수"></a>mapply 함수</h2><ul>
+<li>mapply(FUN,…,MOREARGS=NULL, SIMPLIFY=TRUE, USE.NAMES=TRUE)</li>
+<li>sapply()와 유사하지만 mapply()는 다수의 인자를 함수에 넘길 수 있음</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapply(<span class="built_in">rep</span>, <span class="number">1</span>:<span class="number">10</span>, <span class="number">10</span>:<span class="number">1</span>) <span class="comment"># 반복함수, 반복할 숫자, 반복되는 갯수</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">## [[1]]</span><br><span class="line">##  [1] 1 1 1 1 1 1 1 1 1 1</span><br><span class="line">## </span><br><span class="line">## [[2]]</span><br><span class="line">## [1] 2 2 2 2 2 2 2 2 2</span><br><span class="line">## </span><br><span class="line">## [[3]]</span><br><span class="line">## [1] 3 3 3 3 3 3 3 3</span><br><span class="line">## </span><br><span class="line">## [[4]]</span><br><span class="line">## [1] 4 4 4 4 4 4 4</span><br><span class="line">## </span><br><span class="line">## [[5]]</span><br><span class="line">## [1] 5 5 5 5 5 5</span><br><span class="line">## </span><br><span class="line">## [[6]]</span><br><span class="line">## [1] 6 6 6 6 6</span><br><span class="line">## </span><br><span class="line">## [[7]]</span><br><span class="line">## [1] 7 7 7 7</span><br><span class="line">## </span><br><span class="line">## [[8]]</span><br><span class="line">## [1] 8 8 8</span><br><span class="line">## </span><br><span class="line">## [[9]]</span><br><span class="line">## [1] 9 9</span><br><span class="line">## </span><br><span class="line">## [[10]]</span><br><span class="line">## [1] 10</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tdata$V5 &lt;- mapply(<span class="keyword">function</span>(x,y) x*y, tdata$V1, tdata$V2)</span><br><span class="line">tdata$V5</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">##  [1]  1  2  3  4  5 12 14 16 18 20</span><br></pre></td></tr></table></figure>
+
+<h1 id="For문-apply함수-속도-비교-1"><a href="#For문-apply함수-속도-비교-1" class="headerlink" title="For문, apply함수 속도 비교(1)"></a>For문, apply함수 속도 비교(1)</h1><h2 id="For문-사용-시-속도"><a href="#For문-사용-시-속도" class="headerlink" title="For문 사용 시 속도"></a>For문 사용 시 속도</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 랜덤한 10000개의 숫자를 x1, x2에 저장</span></span><br><span class="line">N &lt;- 10000</span><br><span class="line">x1 &lt;- runif(N)</span><br><span class="line">x2 &lt;- runif(N)</span><br><span class="line"></span><br><span class="line"><span class="comment"># x1과 x2를 열단위로 묶어서 d에 data frame 형태로 저장</span></span><br><span class="line">d &lt;- as.data.frame(cbind(x1, x2))</span><br><span class="line"></span><br><span class="line"><span class="comment"># for loop으로 시간 체크</span></span><br><span class="line">system.time(<span class="keyword">for</span>(i <span class="keyword">in</span> <span class="built_in">c</span>(<span class="number">1</span>:<span class="built_in">length</span>(d[,<span class="number">1</span>])))&#123; <span class="comment"># 1부터 &#x27;d의 1열 길이&#x27;만큼 for 문이 반복함</span></span><br><span class="line">  d$mean2[i] &lt;- mean(<span class="built_in">c</span>(d[i,<span class="number">1</span>], d[i,<span class="number">2</span>])) <span class="comment"># x1, x2 각각 더해 평균을 구한것을 d의 데이터 프레임에 넣음</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##    user  system elapsed </span><br><span class="line">##    0.47    0.00    0.47</span><br></pre></td></tr></table></figure>
+<ul>
+<li>For문은 1부터 10000까지 한 명이 순차적으로 일을 처리한다.</li>
+</ul>
+<h2 id="apply-함수사용-시-속도"><a href="#apply-함수사용-시-속도" class="headerlink" title="apply 함수사용 시 속도"></a>apply 함수사용 시 속도</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># apply 함수를 사용하여 같은 데이터를 처리해보자.</span></span><br><span class="line">system.time(d$mean1 &lt;- apply(d, <span class="number">1</span>, mean)) <span class="comment"># d의 행에 대한 평균</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##    user  system elapsed </span><br><span class="line">##    0.05    0.00    0.04</span><br></pre></td></tr></table></figure>
+
+<h1 id="For문-apply함수-속도-비교-2"><a href="#For문-apply함수-속도-비교-2" class="headerlink" title="For문, apply함수 속도 비교(2)"></a>For문, apply함수 속도 비교(2)</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&#x27;nycflights13&#x27;</span>, repos=<span class="string">&quot;http://cran.us.r-project.org&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## package &#39;nycflights13&#39; successfully unpacked and MD5 sums checked</span><br><span class="line">## </span><br><span class="line">## The downloaded binary packages are in</span><br><span class="line">## 	C:\Users\Public\Documents\ESTsoft\CreatorTemp\RtmpkTLbHQ\downloaded_packages</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&#x27;dplyr&#x27;</span>, repos=<span class="string">&quot;http://cran.us.r-project.org&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## package &#39;dplyr&#39; successfully unpacked and MD5 sums checked</span><br><span class="line">## </span><br><span class="line">## The downloaded binary packages are in</span><br><span class="line">## 	C:\Users\Public\Documents\ESTsoft\CreatorTemp\RtmpkTLbHQ\downloaded_packages</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library(dplyr)</span><br><span class="line">library(nycflights13)</span><br></pre></td></tr></table></figure>
+
+<h2 id="apply-함수사용-시-속도-1"><a href="#apply-함수사용-시-속도-1" class="headerlink" title="apply 함수사용 시 속도"></a>apply 함수사용 시 속도</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&#x27;nycflights13&#x27;</span>, repos=<span class="string">&quot;http://cran.us.r-project.org&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## Warning: package &#39;nycflights13&#39; is in use and will not be installed</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&#x27;dplyr&#x27;</span>, repos=<span class="string">&quot;http://cran.us.r-project.org&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## Warning: package &#39;dplyr&#39; is in use and will not be installed</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library(dplyr)</span><br><span class="line">library(nycflights13)</span><br><span class="line">head(flights)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">## # A tibble: 6 x 19</span><br><span class="line">##    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time</span><br><span class="line">##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;</span><br><span class="line">## 1  2013     1     1      517            515         2      830            819</span><br><span class="line">## 2  2013     1     1      533            529         4      850            830</span><br><span class="line">## 3  2013     1     1      542            540         2      923            850</span><br><span class="line">## 4  2013     1     1      544            545        -1     1004           1022</span><br><span class="line">## 5  2013     1     1      554            600        -6      812            837</span><br><span class="line">## 6  2013     1     1      554            558        -4      740            728</span><br><span class="line">## # ... with 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,</span><br><span class="line">## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,</span><br><span class="line">## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">flights_selected &lt;- select(flights, flight, distance) <span class="comment"># flight number와 distance를 뽑음</span></span><br><span class="line">data_flight &lt;- tapply(flights_selected$distance, flights_selected$flight, <span class="built_in">sum</span>) </span><br><span class="line"><span class="comment"># 데이터 양이 많아 우선적으로 각각의 flight마다 간 거리를 합함.</span></span><br><span class="line">df &lt;- data.frame(flight_num= <span class="built_in">c</span>(<span class="number">1</span>:<span class="built_in">length</span>(data_flight)), flight_distance= data_flight)</span><br><span class="line"><span class="comment"># data frame 형태로 만듦 (인덱스 길이= flight 갯수)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># flight_num와 distance의 평균을 구함, 의미는 없으며 속도차이를 보기 위함!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## apply문 사용 시 속도 </span></span><br><span class="line"><span class="comment"># 행단위로 평균을 구함</span></span><br><span class="line">system.time(df$mean3 &lt;- apply(df, <span class="number">1</span>, mean)) </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##    user  system elapsed </span><br><span class="line">##    0.02    0.00    0.02</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## For문 사용 시 속도</span></span><br><span class="line">system.time(<span class="keyword">for</span>(i <span class="keyword">in</span> <span class="built_in">c</span>(<span class="number">1</span>:<span class="built_in">length</span>(data_flight)))&#123;</span><br><span class="line">  df$mean2[i] &lt;- mean(<span class="built_in">c</span>(df[i,<span class="number">1</span>], df[i,<span class="number">2</span>]))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##    user  system elapsed </span><br><span class="line">##    0.14    0.00    0.14</span><br></pre></td></tr></table></figure>
+
+<h1 id="apply함수-사용-시-장점"><a href="#apply함수-사용-시-장점" class="headerlink" title="apply함수 사용 시 장점"></a>apply함수 사용 시 장점</h1><ul>
+<li>For문과 비교해봤을 때, apply함수 사용 시 속도가 빠음</li>
+<li>대용량 데이터에 대해 짧은 코드로 반복 연산 처리 가능</li>
+</ul>
+<h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul>
+<li><ol>
+<li><a target="_blank" rel="noopener" href="https://ademos.people.uic.edu/Chapter4.html#:~:text=Apply%20functions%20are%20a%20family,and%20often%20require%20less%20code.">https://ademos.people.uic.edu/Chapter4.html#:~:text=Apply%20functions%20are%20a%20family,and%20often%20require%20less%20code.</a></li>
+</ol>
+</li>
+<li><ol start="2">
+<li><a target="_blank" rel="noopener" href="http://rstudio-pubs-static.s3.amazonaws.com/5526_83e42f97a07141e88b75f642dbae8b1b.html">http://rstudio-pubs-static.s3.amazonaws.com/5526_83e42f97a07141e88b75f642dbae8b1b.html</a></li>
+</ol>
+</li>
+<li>3.<a target="_blank" rel="noopener" href="https://www.datacamp.com/community/tutorials/r-tutorial-apply-family">그림</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://eunjin-jun717.github.io/2021/03/26/for_apply/" data-id="ckmpv13av00004ovt90nobgb2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Eunjin Jun"
+        },
+        "headline": "apply함수와 for문의 속도 비교",
+        "image": "https://eunjin-jun717.github.ioImages/for_apply/apply.png",
+        "keywords": "",
+        "genre": "",
+        "datePublished": "2021-03-26",
+        "dateCreated": "2021-03-26",
+        "dateModified": "2021-03-26",
+        "url": "https://eunjin-jun717.github.io/2021/03/26/for_apply/",
+        "description": "개념 정리apply 함수
+apply(X, MARGIN, FUN, …)
+X: 배열, 매트릭스
+Margin: 행(1), 열(2)
+Fun: 함수
+
+12my.matrx &lt;- matrix(c(1:10, 11:20, 21:30), nrow = 10, ncol=3) # 행이  10개, 열이 3개인 매트릭스 생성my.matrx
+
+1234567891011##     ",
+        "wordCount": 2230
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/eunjin-Jun717" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/03/26/house_miniproj_eunjin/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">주택 가격: 시각화 예제</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/26/for_apply/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/for_apply/apply.png)" alt="apply함수와 for문의 속도 비교" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/26/for_apply/" class="title">apply함수와 for문의 속도 비교</a></p>
+                            <p class="item-date"><time datetime="2021-03-26T05:22:42.686Z" itemprop="datePublished">2021-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/26/house_miniproj_eunjin/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/mini_proj/unnamed-chunk-6-1.png)" alt="주택 가격: 시각화 예제" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/26/house_miniproj_eunjin/" class="title">주택 가격: 시각화 예제</a></p>
+                            <p class="item-date"><time datetime="2021-03-26T00:01:46.104Z" itemprop="datePublished">2021-03-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/23/R-edu2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/sample2.png)" alt="R-edu2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/23/R-edu2/" class="title">R-edu2</a></p>
+                            <p class="item-date"><time datetime="2021-03-23T13:53:23.000Z" itemprop="datePublished">2021-03-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/23/R-edu1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/sample.png)" alt="R_edu1" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/23/R-edu1/" class="title">R_edu1</a></p>
+                            <p class="item-date"><time datetime="2021-03-23T13:06:56.000Z" itemprop="datePublished">2021-03-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/23/meaning/" class="thumbnail">
+    
+    
+        <span style="background-image:url(Images/main_branch.png)" alt="What is the main and branch in Github" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/23/meaning/" class="title">What is the main and branch in Github</a></p>
+                            <p class="item-date"><time datetime="2021-03-23T12:40:58.000Z" itemprop="datePublished">2021-03-23</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/r/" rel="tag">r</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/r/" style="font-size: 20px;">r</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Eunjin Jun</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/26/for_apply/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
