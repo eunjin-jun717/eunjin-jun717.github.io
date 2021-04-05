@@ -6,26 +6,26 @@
     
 
     
-    <title>R코딩 기초함수 | Eunjin&#39;s Blog</title>
+    <title>statistic | Eunjin&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="r" />
+    <meta name="keywords" content="statistic" />
     
-    <meta name="description" content="Visualization Practice using “counties”파일 불러오기 get working directory 라는 뜻으로 현재 위치를 알려준다.1getwd() set as working directory 라는 뜻으로 위치를 새로 설정할 수 있다.1setwd(&amp;#x27;R_NCS_2020&#x2F;1_day&#x2F;&amp;#x27;)  dplyr 설치 방법 2가지">
+    <meta name="description" content="상관분석과 로지스틱회귀분석상관분석개념(정의) 연속 변수로 측정된 두 변수간의 선형 관계를 분석하는 기법 X가 증가함에 따라 B도 증가되는지 혹은 감소하는지를 분석기본 가정사항   두 변수 중 적어도 하나의 변수는 정규분포일 것   정규성 검사는 “shapiro.test()” 사용 만약, 두 변수 모두 정규성을 만족하지 못한다면? Spearman, Kenda">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R코딩 기초함수">
-<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/23/R-edu2/index.html">
+<meta property="og:title" content="statistic">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/04/05/statistic/index.html">
 <meta property="og:site_name" content="Eunjin&#39;s Blog">
-<meta property="og:description" content="Visualization Practice using “counties”파일 불러오기 get working directory 라는 뜻으로 현재 위치를 알려준다.1getwd() set as working directory 라는 뜻으로 위치를 새로 설정할 수 있다.1setwd(&amp;#x27;R_NCS_2020&#x2F;1_day&#x2F;&amp;#x27;)  dplyr 설치 방법 2가지">
+<meta property="og:description" content="상관분석과 로지스틱회귀분석상관분석개념(정의) 연속 변수로 측정된 두 변수간의 선형 관계를 분석하는 기법 X가 증가함에 따라 B도 증가되는지 혹은 감소하는지를 분석기본 가정사항   두 변수 중 적어도 하나의 변수는 정규분포일 것   정규성 검사는 “shapiro.test()” 사용 만약, 두 변수 모두 정규성을 만족하지 못한다면? Spearman, Kenda">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/sample2.png">
-<meta property="article:published_time" content="2021-03-23T13:53:23.000Z">
-<meta property="article:modified_time" content="2021-03-26T08:00:44.237Z">
+<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/statistics/cor1.png">
+<meta property="article:published_time" content="2021-04-05T06:08:52.000Z">
+<meta property="article:modified_time" content="2021-04-05T06:25:52.073Z">
 <meta property="article:author" content="Eunjin Jun">
-<meta property="article:tag" content="r">
+<meta property="article:tag" content="statistic">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/sample2.png">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/statistics/cor1.png">
     
 
     
@@ -157,14 +157,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-R-edu2" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-statistic" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        R코딩 기초함수
+        statistic
         </h1>
     
 
@@ -175,16 +175,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/03/23/R-edu2/" class="article-date">
-       <time datetime="2021-03-23T13:53:23.000Z" itemprop="datePublished">2021-03-23</time>
+    <a href="/2021/04/05/statistic/" class="article-date">
+       <time datetime="2021-04-05T06:08:52.000Z" itemprop="datePublished">2021-04-05</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/03/23/R-edu2/" class="article-date">
-     <time datetime="2021-03-26T08:00:44.237Z" itemprop="dateModified">2021-03-26</time>
+  <a href="/2021/04/05/statistic/" class="article-date">
+     <time datetime="2021-04-05T06:25:52.073Z" itemprop="dateModified">2021-04-05</time>
   </a>
 </div>
 
@@ -194,7 +194,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/r/" rel="tag">r</a>
+        <a class="tag-link-link" href="/tags/statistic/" rel="tag">statistic</a>
     </div>
 
                 
@@ -211,49 +211,45 @@
 
             
 
-            <p><img src="/hueman_images/sample2.png"></p>
-<h2 id="Visualization-Practice-using-“counties”"><a href="#Visualization-Practice-using-“counties”" class="headerlink" title="Visualization Practice using “counties”"></a>Visualization Practice using “counties”</h2><h3 id="파일-불러오기"><a href="#파일-불러오기" class="headerlink" title="파일 불러오기"></a>파일 불러오기</h3><ul>
-<li>get working directory 라는 뜻으로 현재 위치를 알려준다.<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getwd()</span><br></pre></td></tr></table></figure></li>
-<li>set as working directory 라는 뜻으로 위치를 새로 설정할 수 있다.<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">&#x27;R_NCS_2020/1_day/&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+            <h1 id="상관분석과-로지스틱회귀분석"><a href="#상관분석과-로지스틱회귀분석" class="headerlink" title="상관분석과 로지스틱회귀분석"></a>상관분석과 로지스틱회귀분석</h1><h2 id="상관분석"><a href="#상관분석" class="headerlink" title="상관분석"></a>상관분석</h2><h3 id="개념-정의"><a href="#개념-정의" class="headerlink" title="개념(정의)"></a>개념(정의)</h3><ul>
+<li>연속 변수로 측정된 두 변수간의 선형 관계를 분석하는 기법</li>
+<li>X가 증가함에 따라 B도 증가되는지 혹은 감소하는지를 분석<br><img src="/hueman_images/statistics/cor1.png"><h3 id="기본-가정사항"><a href="#기본-가정사항" class="headerlink" title="기본 가정사항"></a>기본 가정사항</h3></li>
 </ul>
-<h3 id="dplyr-설치-방법-2가지"><a href="#dplyr-설치-방법-2가지" class="headerlink" title="dplyr 설치 방법 2가지"></a>dplyr 설치 방법 2가지</h3><ul>
-<li>method1) tidyverse 설치 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;tidyverse&quot;</span>)</span><br><span class="line">library(tidyverse)</span><br></pre></td></tr></table></figure></li>
-<li>method2) dplyr만 설치 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;dplyr&quot;</span>)</span><br><span class="line">library(dplyr)</span><br></pre></td></tr></table></figure></li>
+<ol>
+<li>두 변수 중 적어도 하나의 변수는 정규분포일 것</li>
+</ol>
+<ul>
+<li>정규성 검사는 “shapiro.test()” 사용</li>
+<li>만약, 두 변수 모두 정규성을 만족하지 못한다면?</li>
+<li>Spearman, Kendall 상관계수 사용!</li>
+<li>정규성 검정에서 정규분포를 따르지 않거나 표본의 개수가 10개 미만일 때 사용</li>
 </ul>
-<h3 id="데이터-가져오기"><a href="#데이터-가져오기" class="headerlink" title="데이터 가져오기"></a>데이터 가져오기</h3><ul>
-<li>data 폴더에 있는 counties.xlsx 파일을 가져온다.<br>만약 경로 error가 뜨면 getwd()를 하여 현재 파일 위치가 잘못되어있는지 확인해본다.</li>
+<ol start="2">
+<li>연속형 두 변수 간에는 선형적인 관계가 있어야함</li>
+</ol>
+<ul>
+<li>분석을 실시하기 전, 반드시 두 변수의 산점도를 통해 확인해야함</li>
 </ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counties &lt;- readxl::read_xlsx(<span class="string">&quot;data/counties.xslx&quot;</span>, sheet = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="데이터-확인"><a href="#데이터-확인" class="headerlink" title="데이터 확인"></a>데이터 확인</h3><ul>
-<li>glimpse 를 사용하여 counties에 무슨 변수들이 있는지 살펴볼 수 있다. <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glimpse(counties) </span><br></pre></td></tr></table></figure></li>
+<h3 id="공분산-Corvariance"><a href="#공분산-Corvariance" class="headerlink" title="공분산(Corvariance)"></a>공분산(Corvariance)</h3><ul>
+<li>2개의 확률 변수의 상관정도를 나타내는 값</li>
+<li>만약 하나의 값이 상승하는 경향을 보이면서 다른 값도 상승하면, 이때 공분산의 값은 양수!</li>
+<li>하나의 값이 상승하는데 반대로 다른 값은 하강하면, 이때 공분산 값은 음수!</li>
+<li>공분산 값만으로는 상승 or 하강의 경향을 알 수는 있으나 어느정도의 상관관계인지는 파악할 수 없음</li>
+<li>따라서 공분산을 표준화 시킨 “상관계수”를 통해 파악하자!</li>
 </ul>
-<h3 id="Select-사용하여-원하는-변수들-추출"><a href="#Select-사용하여-원하는-변수들-추출" class="headerlink" title="Select 사용하여 원하는 변수들 추출"></a>Select 사용하여 원하는 변수들 추출</h3><ul>
-<li><p>counties 변수들 중에서 state, region, men, women, population 변수들의 데이터만 고른다.<br>select한 것을 counties_selected라는 변수 이름으로 저장한다.</p>
-</li>
-<li><p>counties_selected 를 state 기준으로 내림차순 정렬한다. </p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">counties_selected &lt;- counties %&gt;% </span><br><span class="line">  select(state, region, men, women, population)</span><br><span class="line">  </span><br><span class="line">counties_selected %&gt;% </span><br><span class="line">  arrange(desc(state))</span><br></pre></td></tr></table></figure></li>
+<h3 id="상관관계-amp-상관계수-Correlation-Coefficient"><a href="#상관관계-amp-상관계수-Correlation-Coefficient" class="headerlink" title="상관관계 &amp; 상관계수(Correlation Coefficient)"></a>상관관계 &amp; 상관계수(Correlation Coefficient)</h3><ol>
+<li>상관관계</li>
+</ol>
+<ul>
+<li>두 변수의 선형적인 관계 정도를 나타냄</li>
+<li>일반적으로, 피어슨 상관계수를 의미</li>
 </ul>
-<h3 id="Filter-사용하여-불필요한-것-제거하고-보기"><a href="#Filter-사용하여-불필요한-것-제거하고-보기" class="headerlink" title="Filter 사용하여 불필요한 것 제거하고 보기"></a>Filter 사용하여 불필요한 것 제거하고 보기</h3><ul>
-<li>population이 10000명 이하인 것들만 보여준다.<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;% </span><br><span class="line">  filter(population &lt; <span class="number">10000</span>)</span><br></pre></td></tr></table></figure></li>
-<li>조건이 두가지일 경우에는 아래와 같이 한다. </li>
-<li>state가 California이거나 population이 100000명 이상인 것을 추출한다. <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;% </span><br><span class="line">  filter(state == <span class="string">&quot;California&quot;</span> | population &gt; <span class="number">100000</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Arange-함수"><a href="#Arange-함수" class="headerlink" title="Arange 함수"></a>Arange 함수</h3><ul>
-<li>오름차순, 내림차순으로 정렬 가능하다.<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;% </span><br><span class="line">  filter(state == <span class="string">&quot;California&quot;</span> | population &gt; <span class="number">100000</span>) %&gt;%</span><br><span class="line">  arrange(desc(public_work))</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Mutate-함수"><a href="#Mutate-함수" class="headerlink" title="Mutate 함수"></a>Mutate 함수</h3><ul>
-<li>새로 변수를 추가한다는 것 보다는 의미있는 데이터 발견하고자 할 때 사용한다. </li>
-<li>public workers를 구해서 배열하는 코드이다. <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">counties_seletec &lt;- counties %&gt;%</span><br><span class="line">  select(state, county, private_work, public_work, population)</span><br><span class="line"></span><br><span class="line">counties_seleteced %&gt;%</span><br><span class="line">  mutate(public_workers = population * private_work /<span class="number">100</span>) %&gt;%</span><br><span class="line">  arrange(public_workers) </span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="Count-함수"><a href="#Count-함수" class="headerlink" title="Count 함수"></a>Count 함수</h3><ul>
-<li>각 행의 갯수를 셀 수 있고, 정렬까지 가능하다.</li>
-<li> sort=TRUE이면 자동으로 내림차순<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;%</span><br><span class="line">   count(state, sort =<span class="literal">TRUE</span>)</span><br></pre></td></tr></table></figure></li>
-<li>가중치를 두어 주별로 걸어서 출퇴근하는 사람의 수를 카운트할 수 있다. <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;%</span><br><span class="line">  count(state, wt= walkers_pop)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/dschloe/R_edu">https://github.com/dschloe/R_edu</a></li>
+<ol start="2">
+<li>상관계수</li>
+</ol>
+<ul>
+<li>피어슨 상관계수(Pearson)<br><img src="/hueman_images/statistics/pearson.png"><br><img src="/hueman_images/statistics/pearson2.png"></li>
+<li>상관계수(r)의 값<br>: -1.0 &lt;= r &lt;= -0.7 (강한 음적 선형관계)<br>-0.7&lt;= r &lt;= -0.3 (뚜렷한 음적 선형관계)<br>-0.3&lt;= r &lt;= -0.1 (약한 음적 선형관계)<br>-0.1&lt;= r &lt;= +0.1 (거의 무시될 수 있는 선형관계)<br>+0.1&lt;= r &lt;= +0.3 (약한 양적 선형관계)<br>+0.3&lt;= r &lt;= +0.73 (뚜렷한 양적 선형관계)<br>+0.7&lt;= r &lt;= +1.0 (강한 양적 선형관계)</li>
 </ul>
 
         </div>
@@ -262,7 +258,7 @@
 
 
 
-    <a data-url="https://eunjin-jun717.github.io/2021/03/23/R-edu2/" data-id="ckmpzctdf0006f0vtfqfg0qku" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://eunjin-jun717.github.io/2021/04/05/statistic/" data-id="ckn47ncm20003ycvt7vl28aq1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -332,21 +328,26 @@
             "@type": "Person",
             "name": "Eunjin Jun"
         },
-        "headline": "R코딩 기초함수",
-        "image": "https://eunjin-jun717.github.io/hueman_images/sample2.png",
-        "keywords": "r",
+        "headline": "statistic",
+        "image": "https://eunjin-jun717.github.io/hueman_images/statistics/cor1.png",
+        "keywords": "statistic",
         "genre": "",
-        "datePublished": "2021-03-23",
-        "dateCreated": "2021-03-23",
-        "dateModified": "2021-03-26",
-        "url": "https://eunjin-jun717.github.io/2021/03/23/R-edu2/",
-        "description": "
-Visualization Practice using “counties”파일 불러오기
-get working directory 라는 뜻으로 현재 위치를 알려준다.1getwd()
-set as working directory 라는 뜻으로 위치를 새로 설정할 수 있다.1setwd(&#x27;R_NCS_2020/1_day/&#x27;)
+        "datePublished": "2021-04-05",
+        "dateCreated": "2021-04-05",
+        "dateModified": "2021-04-05",
+        "url": "https://eunjin-jun717.github.io/2021/04/05/statistic/",
+        "description": "상관분석과 로지스틱회귀분석상관분석개념(정의)
+연속 변수로 측정된 두 변수간의 선형 관계를 분석하는 기법
+X가 증가함에 따라 B도 증가되는지 혹은 감소하는지를 분석기본 가정사항
 
-dplyr 설치 방법 2가지",
-        "wordCount": 421
+
+두 변수 중 적어도 하나의 변수는 정규분포일 것
+
+
+정규성 검사는 “shapiro.test()” 사용
+만약, 두 변수 모두 정규성을 만족하지 못한다면?
+Spearman, Kenda",
+        "wordCount": 200
     }
 </script>
 
@@ -427,20 +428,10 @@ dplyr 설치 방법 2가지",
         
 <nav id="article-nav">
     
-        <a href="/2021/03/26/house_miniproj_eunjin/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            주택 가격: 시각화 예제
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2021/03/23/R-edu1/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/03/30/error2/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">R코딩 기초1</p>
+        <p class="article-nav-title">Encoding error in R</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -650,7 +641,7 @@ dplyr 설치 방법 2가지",
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/23/R-edu2/';
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/04/05/statistic/';
     
     (function() {
     var dsq = document.createElement('script');
