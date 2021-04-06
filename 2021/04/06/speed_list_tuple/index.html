@@ -6,26 +6,23 @@
     
 
     
-    <title>troubleshooting in Hexo | Eunjin&#39;s Blog</title>
+    <title>Eunjin&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="hexo" />
+    <meta name="keywords" content="" />
     
-    <meta name="description" content="오류 상황: npm을 통해서 설치를 완료하였는데도 아래와 같은 오류가 발생하였다.  1bash: hexo: command not found  해결 방안 우선 node와 npm이 제대로 설치되었는지 확인할 것 12$ node -v$ npm -v   정상적으로 설치되어 있다면, 다음 step을 따를 것step 1) 자신의 blog 폴더 (ex. myblog)">
+    <meta name="description" content="List vs Tuple차이점 list는 mutable 즉, 생성된 후에 변경 가능하다.tuple은 immutable 즉, 생성된 후에 변경이 불가능하다.   list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\   why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 들어있다면?&#x3D;&gt; key 값">
 <meta property="og:type" content="article">
-<meta property="og:title" content="troubleshooting in Hexo">
-<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/29/error/index.html">
+<meta property="og:title" content="Eunjin&#39;s Blog">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/04/06/speed_list_tuple/index.html">
 <meta property="og:site_name" content="Eunjin&#39;s Blog">
-<meta property="og:description" content="오류 상황: npm을 통해서 설치를 완료하였는데도 아래와 같은 오류가 발생하였다.  1bash: hexo: command not found  해결 방안 우선 node와 npm이 제대로 설치되었는지 확인할 것 12$ node -v$ npm -v   정상적으로 설치되어 있다면, 다음 step을 따를 것step 1) 자신의 blog 폴더 (ex. myblog)">
+<meta property="og:description" content="List vs Tuple차이점 list는 mutable 즉, 생성된 후에 변경 가능하다.tuple은 immutable 즉, 생성된 후에 변경이 불가능하다.   list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\   why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 들어있다면?&#x3D;&gt; key 값">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/error/node.png">
-<meta property="article:published_time" content="2021-03-29T12:23:23.000Z">
-<meta property="article:modified_time" content="2021-03-30T23:58:47.922Z">
+<meta property="article:published_time" content="2021-04-06T05:50:56.100Z">
+<meta property="article:modified_time" content="2021-04-06T05:50:56.100Z">
 <meta property="article:author" content="Eunjin Jun">
-<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/error/node.png">
     
 
     
@@ -157,34 +154,24 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-error" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-speed_list_tuple" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
-        
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
-        troubleshooting in Hexo
-        </h1>
-    
-
-            </header>
         
         
             <div class="article-meta">
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/03/29/error/" class="article-date">
-       <time datetime="2021-03-29T12:23:23.000Z" itemprop="datePublished">2021-03-29</time>
+    <a href="/2021/04/06/speed_list_tuple/" class="article-date">
+       <time datetime="2021-04-06T05:50:56.100Z" itemprop="datePublished">2021-04-06</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/03/29/error/" class="article-date">
-     <time datetime="2021-03-30T23:58:47.922Z" itemprop="dateModified">2021-03-31</time>
+  <a href="/2021/04/06/speed_list_tuple/" class="article-date">
+     <time datetime="2021-04-06T05:50:56.100Z" itemprop="dateModified">2021-04-06</time>
   </a>
 </div>
 
@@ -192,11 +179,6 @@
                 
 
                 
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/hexo/" rel="tag">hexo</a>
-    </div>
-
                 
 
                 
@@ -211,24 +193,44 @@
 
             
 
-            <h2 id="오류-상황"><a href="#오류-상황" class="headerlink" title="오류 상황"></a>오류 상황</h2><p>: npm을 통해서 설치를 완료하였는데도 아래와 같은 오류가 발생하였다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash: hexo: command not found</span><br></pre></td></tr></table></figure>
-
-<h2 id="해결-방안"><a href="#해결-방안" class="headerlink" title="해결 방안"></a>해결 방안</h2><ul>
-<li><p>우선 node와 npm이 제대로 설치되었는지 확인할 것</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>
-<p><img src="/hueman_images/error/node.png"></p>
+            <h1 id="List-vs-Tuple"><a href="#List-vs-Tuple" class="headerlink" title="List vs Tuple"></a>List vs Tuple</h1><h2 id="차이점"><a href="#차이점" class="headerlink" title="차이점"></a>차이점</h2><ol>
+<li><p>list는 <em>mutable</em> 즉, 생성된 후에 변경 <strong>가능</strong>하다.<br>tuple은 <em>immutable</em> 즉, 생성된 후에 변경이 <strong>불가능</strong>하다. </p>
 </li>
-<li><p>정상적으로 설치되어 있다면, 다음 step을 따를 것<br>step 1) 자신의 blog 폴더 (ex. myblog) -&gt; node_modules -&gt; .bin<br>경로를 복사함<br><img src="/hueman_images/error/bin.png"></p>
+<li><p>list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\</p>
 </li>
+</ol>
+<p><em>why?</em> key값은 불변한 값만 올 수 있기 때문!<br>만약, tuple에 list가 들어있다면?<br>=&gt; key 값으로 사용 <strong>불가능</strong>함! </p>
+<ul>
+<li>참고) 문자열 또한 <strong>불변</strong>한 값이므로 dictionary의 key값으로 사용 가능하다.</li>
 </ul>
-<p>step 2) 시스템 속성 -&gt; 고급 탭 -&gt; 환경 변수<br><img src="/hueman_images/error/systemsetting.png"></p>
-<p>step 3) 시스템 변수에서 Path 클릭 -&gt; 편집 클릭 -&gt; 새로만들기 -&gt; 경로 붙여넣기 -&gt; 확인<br><img src="/hueman_images/error/systemsetting2.png"></p>
-<p>step 4) 다시 열어서 hexo server로 테스트해보기 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line"></span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<p>bash: hexo: command not found가 나오지 않는다면 해결!!</p>
-<h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.programmersought.com/article/45443350618/">https://www.programmersought.com/article/45443350618/</a></li>
+<h2 id="list-대신-tuple을-사용하는-이유는"><a href="#list-대신-tuple을-사용하는-이유는" class="headerlink" title="list 대신 tuple을 사용하는 이유는?"></a><em>list</em> 대신 <em>tuple</em>을 사용하는 이유는?</h2><h2 id="메모리-크기-비교"><a href="#메모리-크기-비교" class="headerlink" title="메모리 크기 비교"></a>메모리 크기 비교</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list_1 = [<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">tuple_1 = <span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">print</span>(sys.getsizeof(list_1))</span><br><span class="line"><span class="built_in">print</span>(sys.getsizeof(tuple_1))</span><br></pre></td></tr></table></figure>
+
+<pre><code>104
+88
+</code></pre>
+<ul>
+<li>tuple이 메모리를 차이하는 것이 더 작은 것을 볼 수 있다. </li>
+</ul>
+<h2 id="생성-속도"><a href="#생성-속도" class="headerlink" title="생성 속도"></a>생성 속도</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%timeit list_2=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>]</span><br><span class="line">%timeit tuple_2=<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>10000000 loops, best of 5: 57.5 ns per loop
+100000000 loops, best of 5: 16.4 ns per loop
+</code></pre>
+<ul>
+<li>tuple의 생성속도가 더 빠른 것을 확인할 수 있다.</li>
+</ul>
+<h2 id="인덱싱-속도"><a href="#인덱싱-속도" class="headerlink" title="인덱싱 속도"></a>인덱싱 속도</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list_3=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">%timeit list_3[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">tuple_3=<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span></span><br><span class="line">%timeit tuple_3[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<pre><code>10000000 loops, best of 5: 43 ns per loop
+10000000 loops, best of 5: 42.8 ns per loop
+</code></pre>
+<p>tuple이 list보다 indexing 으로 데이터에 접근하는 속도가 더 빠르다. </p>
+<h2 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h2><ul>
+<li>메모리 크기비교, 생성속도, 인덱싱 속도에서 모두 tuple의 결과가 더 빠른것을 확인 할 수 있었다. </li>
+</ul>
+<h3 id="출처"><a href="#출처" class="headerlink" title="출처"></a>출처</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://codacoding.tistory.com/36">https://codacoding.tistory.com/36</a></li>
+<li><a target="_blank" rel="noopener" href="https://itholic.github.io/python-list-tuple/">https://itholic.github.io/python-list-tuple/</a></li>
 </ul>
 
         </div>
@@ -237,7 +239,7 @@
 
 
 
-    <a data-url="https://eunjin-jun717.github.io/2021/03/29/error/" data-id="ckmv935fa0000lgvtc49n0q1f" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://eunjin-jun717.github.io/2021/04/06/speed_list_tuple/" data-id="ckn5kglr90000jkvtg3of6486" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -307,24 +309,22 @@
             "@type": "Person",
             "name": "Eunjin Jun"
         },
-        "headline": "troubleshooting in Hexo",
-        "image": "https://eunjin-jun717.github.io/hueman_images/error/node.png",
-        "keywords": "hexo",
+        
+        "image": "https://eunjin-jun717.github.io",
+        "keywords": "",
         "genre": "",
-        "datePublished": "2021-03-29",
-        "dateCreated": "2021-03-29",
-        "dateModified": "2021-03-31",
-        "url": "https://eunjin-jun717.github.io/2021/03/29/error/",
-        "description": "오류 상황: npm을 통해서 설치를 완료하였는데도 아래와 같은 오류가 발생하였다. 
-1bash: hexo: command not found
+        "datePublished": "2021-04-06",
+        "dateCreated": "2021-04-06",
+        "dateModified": "2021-04-06",
+        "url": "https://eunjin-jun717.github.io/2021/04/06/speed_list_tuple/",
+        "description": "List vs Tuple차이점
+list는 mutable 즉, 생성된 후에 변경 가능하다.tuple은 immutable 즉, 생성된 후에 변경이 불가능하다. 
 
-해결 방안
-우선 node와 npm이 제대로 설치되었는지 확인할 것
-12$ node -v$ npm -v
+list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\
 
 
-정상적으로 설치되어 있다면, 다음 step을 따를 것step 1) 자신의 blog 폴더 (ex. myblog) ",
-        "wordCount": 137
+why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 들어있다면?=&gt; key 값",
+        "wordCount": 244
     }
 </script>
 
@@ -405,20 +405,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2021/03/30/error2/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Encoding error in R
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2021/03/26/for_apply/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/04/05/statistic/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">apply함수와 for문의 속도 비교</p>
+        <p class="article-nav-title">기초 통계-상관분석</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -628,7 +618,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/29/error/';
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/04/06/speed_list_tuple/';
     
     (function() {
     var dsq = document.createElement('script');
