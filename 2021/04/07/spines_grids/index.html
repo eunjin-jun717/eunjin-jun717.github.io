@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Eunjin&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="" />
+    
+    <meta name="description" content="블로그 실습 따라하기 Spines&amp;Grids practice  시각화 코드를 함수로 만들기1234567891011121314151617181920212223def plot_example(ax, zorder&#x3D;0): # zorder(레이어의 위치)  ax.bar(tips_day[&quot;day&quot;],tips_day[&quot;tip&quot;]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eunjin&#39;s Blog">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/04/07/spines_grids/index.html">
+<meta property="og:site_name" content="Eunjin&#39;s Blog">
+<meta property="og:description" content="블로그 실습 따라하기 Spines&amp;Grids practice  시각화 코드를 함수로 만들기1234567891011121314151617181920212223def plot_example(ax, zorder&#x3D;0): # zorder(레이어의 위치)  ax.bar(tips_day[&quot;day&quot;],tips_day[&quot;tip&quot;]">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/grid_spine/output_6_0.png">
+<meta property="article:published_time" content="2021-04-07T08:23:15.180Z">
+<meta property="article:modified_time" content="2021-04-07T08:27:01.076Z">
+<meta property="article:author" content="Eunjin Jun">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/grid_spine/output_6_0.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Eunjin&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-spines_grids" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/04/07/spines_grids/" class="article-date">
+       <time datetime="2021-04-07T08:23:15.180Z" itemprop="datePublished">2021-04-07</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/04/07/spines_grids/" class="article-date">
+     <time datetime="2021-04-07T08:27:01.076Z" itemprop="dateModified">2021-04-07</time>
+  </a>
+</div>
+
+
+                
+
+                
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="블로그-실습-따라하기"><a href="#블로그-실습-따라하기" class="headerlink" title="블로그 실습 따라하기"></a>블로그 실습 따라하기</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://jehyunlee.github.io/2020/08/27/Python-DS-28-mpl_spines_grids/">Spines&amp;Grids practice</a></li>
+</ul>
+<h2 id="시각화-코드를-함수로-만들기"><a href="#시각화-코드를-함수로-만들기" class="headerlink" title="시각화 코드를 함수로 만들기"></a>시각화 코드를 함수로 만들기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot_example</span>(<span class="params">ax, zorder=<span class="number">0</span></span>):</span> <span class="comment"># zorder(레이어의 위치)</span></span><br><span class="line">  ax.bar(tips_day[<span class="string">&quot;day&quot;</span>],tips_day[<span class="string">&quot;tip&quot;</span>],color=<span class="string">&quot;lightgray&quot;</span>, zorder=zorder) <span class="comment">#x축: day, y축: tip</span></span><br><span class="line">  ax.set_title(<span class="string">&quot;tip (mean)&quot;</span>, fontsize=<span class="number">16</span>, pad=<span class="number">12</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># values</span></span><br><span class="line">  h_pad=<span class="number">0.1</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ax.patches)): <span class="comment"># axes에 들어오는 객체: 막대기 4개 즉, ax.patches 길이는 4</span></span><br><span class="line">    fontweight=<span class="string">&quot;normal&quot;</span> <span class="comment">#폰트 굵기</span></span><br><span class="line">    color=<span class="string">&quot;k&quot;</span> <span class="comment"># 폰트 색깔</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">3</span>: <span class="comment"># 일요일</span></span><br><span class="line">      fontweight=<span class="string">&quot;bold&quot;</span> </span><br><span class="line">      color=<span class="string">&quot;darkred&quot;</span></span><br><span class="line"></span><br><span class="line">    ax.text(i, tips_day[<span class="string">&quot;tip&quot;</span>].loc[i]+h_pad, <span class="string">f&quot;<span class="subst">&#123;tips_day[<span class="string">&#x27;tip&#x27;</span>].loc[i]:<span class="number">0.2</span>f&#125;</span>&quot;</span>, <span class="comment"># loc[i]: 요일별높이 설정해줌, f&quot;: 글자 출력</span></span><br><span class="line">            horizontalalignment=<span class="string">&#x27;center&#x27;</span>,fontsize=<span class="number">12</span>, fontweight=fontweight, color=color)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#Sunday # 4번째가 sunday</span></span><br><span class="line">  ax.patches[<span class="number">3</span>].set_facecolor(<span class="string">&quot;darkred&quot;</span>) <span class="comment"># bar채우기색</span></span><br><span class="line">  ax.patches[<span class="number">3</span>].set_edgecolor(<span class="string">&quot;black&quot;</span>) <span class="comment"># bar edge 색</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># set Range</span></span><br><span class="line">  ax.set_ylim(<span class="number">0</span>,<span class="number">4</span>)</span><br><span class="line">  <span class="keyword">return</span> ax</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>seaborn의 tips 데이터 가져오기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line">tips = sns.load_dataset(<span class="string">&quot;tips&quot;</span>)</span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16.99</td>
+      <td>1.01</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10.34</td>
+      <td>1.66</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21.01</td>
+      <td>3.50</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23.68</td>
+      <td>3.31</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24.59</td>
+      <td>3.61</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tips_day=tips.groupby(<span class="string">&quot;day&quot;</span>).mean().reset_index() <span class="comment"># 요일별 평균 데이터 </span></span><br><span class="line">tips_day</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>day</th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Thur</td>
+      <td>17.682742</td>
+      <td>2.771452</td>
+      <td>2.451613</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Fri</td>
+      <td>17.151579</td>
+      <td>2.734737</td>
+      <td>2.105263</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sat</td>
+      <td>20.441379</td>
+      <td>2.993103</td>
+      <td>2.517241</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sun</td>
+      <td>21.410000</td>
+      <td>3.255132</td>
+      <td>2.842105</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig, ax =plt.subplots() <span class="comment"># figure, axes 객체 생성</span></span><br><span class="line">ax=plot_example(ax)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/hueman_images/grid_spine/output_6_0.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(ax.spines) <span class="comment">#dictionary의 일종</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>collections.OrderedDict
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> ax.spines.items():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&quot;spines[<span class="subst">&#123;k&#125;</span>]=<span class="subst">&#123;v&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>spines[left]=Spine
+spines[right]=Spine
+spines[bottom]=Spine
+spines[top]=Spine
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax.spines.values() <span class="comment"># spine은 patch의 subclass</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>odict_values([&lt;matplotlib.spines.Spine object at 0x7f0fd2d9f890&gt;, &lt;matplotlib.spines.Spine object at 0x7f0fd2d9f050&gt;, &lt;matplotlib.spines.Spine object at 0x7f0fd2d9f1d0&gt;, &lt;matplotlib.spines.Spine object at 0x7f0fd2d9fcd0&gt;])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fig, ax=plt.subplots()</span><br><span class="line">ax = plot_example(ax)</span><br><span class="line"></span><br><span class="line"><span class="comment"># set_visible(False)를 함으로써 bottom 축만 남기고 다른 축들은 숨김</span></span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/hueman_images/grid_spine/output_10_0.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fig,ax = plt.subplots()</span><br><span class="line">ax = plot_example(ax)</span><br><span class="line"></span><br><span class="line"><span class="comment"># spince의 일부 영역만 보고싶을 때</span></span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_bounds(<span class="number">1</span>,<span class="number">3</span>) <span class="comment"># set_bounds로 최소, 최대 영역 정해줌</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/hueman_images/grid_spine/output_11_0.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].get_position() <span class="comment"># left spine이 밖으로 0만큼 나가있음</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(&#39;outward&#39;, 0.0)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax = plot_example(ax)</span><br><span class="line"></span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_position((<span class="string">&#x27;outward&#x27;</span>,<span class="number">10</span>))  <span class="comment"># left spine을 바깥쪽으로 10만큼 움직임</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/hueman_images/grid_spine/output_13_0.png"></p>
+<h3 id="그래프-3개-한꺼번에-그리기"><a href="#그래프-3개-한꺼번에-그리기" class="headerlink" title="그래프 3개 한꺼번에 그리기"></a>그래프 3개 한꺼번에 그리기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(ncols=<span class="number">3</span>, figsize=(<span class="number">15</span>,<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>): <span class="comment">#3개의 그래프</span></span><br><span class="line">  ax[i]=plot_example(ax[i])</span><br><span class="line">  ax[i].spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">  ax[i].spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax[0]: spine을 data영역에서 -50만큼 이동</span></span><br><span class="line">ax[<span class="number">0</span>].spines[<span class="string">&#x27;left&#x27;</span>].set_position((<span class="string">&quot;outward&quot;</span>,-<span class="number">50</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax[1]: spine을 axes의 0.3의 위치에 설정</span></span><br><span class="line">ax[<span class="number">1</span>].spines[<span class="string">&#x27;left&#x27;</span>].set_position((<span class="string">&#x27;axes&#x27;</span>,<span class="number">0.3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax[2]: spine을 data의 2.5의 위치에 설정</span></span><br><span class="line">ax[<span class="number">2</span>].spines[<span class="string">&#x27;left&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>,<span class="number">2.5</span>))</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/hueman_images/grid_spine/output_15_0.png"></p>
+<h3 id="sin-그래프-그리기"><a href="#sin-그래프-그리기" class="headerlink" title="sin 그래프 그리기"></a>sin 그래프 그리기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment">## data</span></span><br><span class="line">x= np.linspace(-np.pi, np.pi,<span class="number">100</span>)</span><br><span class="line">y=<span class="number">2</span>*np.sin(x)</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots(ncols=<span class="number">3</span>, figsize=(<span class="number">12</span>,<span class="number">4</span>)) <span class="comment"># 그래프 3개 만듦</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## normal plot</span></span><br><span class="line">ax[<span class="number">0</span>].plot(x,y)</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&quot;normal plot&quot;</span>, pad=<span class="number">12</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">## textbook(1)</span></span><br><span class="line">ax[<span class="number">1</span>].plot(x,y)</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&quot;textbook (1)&quot;</span>, pad=<span class="number">12</span>)</span><br><span class="line">ax[<span class="number">1</span>].spines[<span class="string">&#x27;left&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">1</span>].spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">1</span>].spines[<span class="string">&#x27;right&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>,<span class="number">0</span>)) <span class="comment"># (0,0) 지나가게 함</span></span><br><span class="line">ax[<span class="number">1</span>].spines[<span class="string">&#x27;bottom&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>,<span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">## textbook(2)</span></span><br><span class="line">ax[<span class="number">2</span>].plot(x,y)</span><br><span class="line">ax[<span class="number">2</span>].set_title(<span class="string">&quot;textbook (2)&quot;</span>, pad=<span class="number">12</span>)</span><br><span class="line">ax[<span class="number">2</span>].spines[<span class="string">&#x27;left&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">2</span>].spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax[<span class="number">2</span>].spines[<span class="string">&#x27;right&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>,<span class="number">0</span>))</span><br><span class="line">ax[<span class="number">2</span>].spines[<span class="string">&#x27;bottom&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>,<span class="number">0</span>))</span><br><span class="line">ax[<span class="number">2</span>].plot(<span class="number">1</span>,<span class="number">0</span>,<span class="string">&#x27;&gt;k&#x27;</span>,transform=ax[<span class="number">2</span>].get_yaxis_transform(),clip_on=<span class="literal">False</span>) <span class="comment"># &gt;k 화살표 모양</span></span><br><span class="line"><span class="comment"># get_yaxis_transform이면 x축 기준으로 1만큼 y기준 움직이지 않음</span></span><br><span class="line">ax[<span class="number">2</span>].plot(<span class="number">0</span>,<span class="number">1</span>,<span class="string">&#x27;^k&#x27;</span>,transform=ax[<span class="number">2</span>].get_xaxis_transform(),clip_on=<span class="literal">False</span>) <span class="comment"># ^k 위쪽 화살표 </span></span><br><span class="line"><span class="comment"># get_xaxis_transform이면 y축 기준으로 x는 움직이지 않고 y는 1만큼 움직임</span></span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/hueman_images/grid_spine/output_17_0.png"></p>
+<ul>
+<li>set_position((‘axes’,0.5)) = set_position(‘center’)</li>
+<li>set_position((‘data’,0)) = set_position(‘zero’)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(ncols=<span class="number">3</span>, figsize=(<span class="number">15</span>,<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">  ax[i]=plot_example(ax[i])</span><br><span class="line">  ax[i].spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">  ax[i].spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">  ax[i].spines[<span class="string">&#x27;left&#x27;</span>].set_position((<span class="string">&#x27;outward&#x27;</span>,<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax[0]: x,y 둘다</span></span><br><span class="line">ax[<span class="number">0</span>].grid(axis=<span class="string">&#x27;both&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax[1]: x축만</span></span><br><span class="line">ax[<span class="number">1</span>].grid(axis=<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax[2]: y축만</span></span><br><span class="line">ax[<span class="number">2</span>].grid(axis=<span class="string">&#x27;y&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/hueman_images/grid_spine/output_19_0.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># major, minor tick 설정</span></span><br><span class="line"><span class="keyword">from</span> matplotlib.ticker <span class="keyword">import</span> (MultipleLocator, AutoMinorLocator, StrMethodFormatter)</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax=plot_example(ax)</span><br><span class="line"></span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># y축 tick 설정</span></span><br><span class="line"></span><br><span class="line">ax.yaxis.set_major_locator(MultipleLocator(<span class="number">1</span>)) <span class="comment"># y축 major tick을 1단위로 설정</span></span><br><span class="line">ax.yaxis.set_major_formatter(<span class="string">&#x27;&#123;x:0.5f&#125;&#x27;</span>)</span><br><span class="line">ax.yaxis.set_minor_locator(MultipleLocator(<span class="number">0.5</span>)) <span class="comment"># 0.5마다 minor tick 그림</span></span><br><span class="line"></span><br><span class="line">plt.plot()</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-180-84d5866b2f60&gt; in &lt;module&gt;()
+     11 
+     12 ax.yaxis.set_major_locator(MultipleLocator(1)) # y축 major tick을 1단위로 설정
+---&gt; 13 ax.yaxis.set_major_formatter(&#39;&#123;x:0.5f&#125;&#39;)
+     14 ax.yaxis.set_minor_locator(MultipleLocator(0.5)) # 0.5마다 minor tick 그림
+     15 
+
+
+/usr/local/lib/python3.7/dist-packages/matplotlib/axis.py in set_major_formatter(self, formatter)
+   1626         formatter : `~matplotlib.ticker.Formatter`
+   1627         &quot;&quot;&quot;
+-&gt; 1628         cbook._check_isinstance(mticker.Formatter, formatter=formatter)
+   1629         self.isDefault_majfmt = False
+   1630         self.major.formatter = formatter
+
+
+/usr/local/lib/python3.7/dist-packages/matplotlib/cbook/__init__.py in _check_isinstance(_types, **kwargs)
+   2126                     &quot;, &quot;.join(names[:-1]) + &quot; or &quot; + names[-1]
+   2127                     if len(names) &gt; 1 else names[0],
+-&gt; 2128                     type_name(type(v))))
+   2129 
+   2130 
+
+
+TypeError: &#39;formatter&#39; must be an instance of matplotlib.ticker.Formatter, not a str
+</code></pre>
+<p><img src="/hueman_images/grid_spine/output_20_1.png"></p>
+<ul>
+<li>오류 상황<br>: ax.yaxis.set_major_formatter(‘{x:0.5f}’) 에서 Type Error가 발생하였다. </li>
+</ul>
+<p> <em>TypeError: ‘formatter’ must be an instance of matplotlib.ticker.Formatter, not a str</em></p>
+<ul>
+<li>해결 방법<br>:  string을 입력했을 때, 내부적으로 StrMethodFormatter이 autogenerate되서 str로 교체된다.<br>그러나 Error를 보면 자동으로 동작하지 않았기 때문에 Type Error가 뜬 것으로 보인다.<br>따라서, StrMethodFormatter 의 함수를 입력하면 된다.<br>from matplotlib.ticker import (MultipleLocator, AutoMinorLocator, <strong>StrMethodFormatter</strong>) 처럼 StrMethodFormatter를 추가한 뒤,<br>*ax.yaxis.set_major_formatter(StrMethodFormatter(‘{x:0.2f}’))*<br>위의 코드로 변경하면 된다 .<br><img src="/hueman_images/grid_spine/formatter_tree.png"></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># major, minor tick 설정</span></span><br><span class="line"><span class="keyword">from</span> matplotlib.ticker <span class="keyword">import</span> (MultipleLocator, AutoMinorLocator, StrMethodFormatter)</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax=plot_example(ax)</span><br><span class="line"></span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># y축 tick 설정</span></span><br><span class="line"></span><br><span class="line">ax.yaxis.set_major_locator(MultipleLocator(<span class="number">1</span>)) <span class="comment"># y축 major tick을 1단위로 설정</span></span><br><span class="line">ax.yaxis.set_major_formatter(StrMethodFormatter(<span class="string">&#x27;&#123;x:0.2f&#125;&#x27;</span>)) <span class="comment"># y축 단위 소수점 2자리까지 보임</span></span><br><span class="line">ax.yaxis.set_minor_locator(MultipleLocator(<span class="number">0.5</span>)) <span class="comment"># 0.5마다 minor tick 그림</span></span><br><span class="line"></span><br><span class="line">plt.plot()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[]
+</code></pre>
+<p><img src="/hueman_images/grid_spine/output_22_1.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots(ncols=<span class="number">3</span>, figsize=(<span class="number">15</span>,<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">  ax[i]= plot_example(ax[i], zorder=<span class="number">2</span>) <span class="comment"># bar를 grid 앞으로 위치시킴</span></span><br><span class="line">  ax[i].spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">  ax[i].spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">  ax[i].spines[<span class="string">&#x27;left&#x27;</span>].set_position((<span class="string">&#x27;outward&#x27;</span>,<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">  ax[i].yaxis.set_major_locator(MultipleLocator(<span class="number">1</span>))</span><br><span class="line">  ax[i].yaxis.set_major_formatter(StrMethodFormatter(<span class="string">&#x27;&#123;x:0.2f&#125;&#x27;</span>))</span><br><span class="line">  ax[i].yaxis.set_minor_locator(MultipleLocator(<span class="number">0.5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax[0]: major, minor 둘다</span></span><br><span class="line">ax[<span class="number">0</span>].grid(axis=<span class="string">&#x27;y&#x27;</span>,which=<span class="string">&#x27;both&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax[1]: major 만</span></span><br><span class="line">ax[<span class="number">1</span>].grid(axis=<span class="string">&#x27;y&#x27;</span>, which=<span class="string">&#x27;major&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ax[2]: major만 &amp; option</span></span><br><span class="line">ax[<span class="number">2</span>].grid(axis=<span class="string">&#x27;y&#x27;</span>, which=<span class="string">&#x27;major&#x27;</span>, color=<span class="string">&#x27;r&#x27;</span>, lw=<span class="number">0.5</span>, alpha=<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/hueman_images/grid_spine/output_23_0.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax=plot_example(ax, zorder=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_visible(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">ax.yaxis.set_major_locator(MultipleLocator(<span class="number">1</span>))</span><br><span class="line">ax.yaxis.set_major_formatter(StrMethodFormatter(<span class="string">&#x27;&#123;x:0.2f&#125;&#x27;</span>))</span><br><span class="line">ax.yaxis.set_minor_locator(MultipleLocator(<span class="number">0.5</span>))</span><br><span class="line"></span><br><span class="line">ax.grid(axis=<span class="string">&#x27;y&#x27;</span>,which=<span class="string">&#x27;major&#x27;</span>, color=<span class="string">&#x27;lightgray&#x27;</span>)</span><br><span class="line">ax.grid(axis=<span class="string">&#x27;y&#x27;</span>, which=<span class="string">&#x27;minor&#x27;</span>, ls=<span class="string">&#x27;:&#x27;</span>) <span class="comment"># 점선으로 minor 부분 그리기</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/hueman_images/grid_spine/output_24_0.png"></p>
+<h2 id="출처"><a href="#출처" class="headerlink" title="출처"></a>출처</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://jehyunlee.github.io/2020/08/27/Python-DS-28-mpl_spines_grids/">Jehyunlee: spines and grids</a></li>
+<li><a target="_blank" rel="noopener" href="https://matplotlib.org/stable/api/ticker_api.html#matplotlib.ticker.TickHelper">Formatter type error solution 참고</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://eunjin-jun717.github.io/2021/04/07/spines_grids/" data-id="ckn76ujwo0000qgvtgsju2d1h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Eunjin Jun"
+        },
+        
+        "image": "https://eunjin-jun717.github.io/hueman_images/grid_spine/output_6_0.png",
+        "keywords": "",
+        "genre": "",
+        "datePublished": "2021-04-07",
+        "dateCreated": "2021-04-07",
+        "dateModified": "2021-04-07",
+        "url": "https://eunjin-jun717.github.io/2021/04/07/spines_grids/",
+        "description": "블로그 실습 따라하기
+Spines&amp;Grids practice
+
+시각화 코드를 함수로 만들기1234567891011121314151617181920212223def plot_example(ax, zorder=0): # zorder(레이어의 위치)  ax.bar(tips_day[&quot;day&quot;],tips_day[&quot;tip&quot;]",
+        "wordCount": 2186
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/eunjin-Jun717" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/04/06/hexo_python/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title"></p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/07/spines_grids/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/hueman_images/grid_spine/output_6_0.png)" alt="" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/04/07/spines_grids/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2021-04-07T08:23:15.180Z" itemprop="datePublished">2021-04-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/06/hexo_python/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/hueman_images/output_1_0.png)" alt="" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/04/06/hexo_python/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2021-04-06T06:51:18.658Z" itemprop="datePublished">2021-04-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/06/speed_list_tuple/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/04/06/speed_list_tuple/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2021-04-05T15:00:00.000Z" itemprop="datePublished">2021-04-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/05/statistic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/hueman_images/statistics/cor1.png)" alt="기초 통계-상관분석" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/04/05/statistic/" class="title">기초 통계-상관분석</a></p>
+                            <p class="item-date"><time datetime="2021-04-05T06:08:52.000Z" itemprop="datePublished">2021-04-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/30/error2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/hueman_images/error/encoding_error.png)" alt="Encoding error in R" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/03/30/error2/" class="title">Encoding error in R</a></p>
+                            <p class="item-date"><time datetime="2021-03-30T12:06:12.000Z" itemprop="datePublished">2021-03-30</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/r/" rel="tag">r</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/r/" style="font-size: 15px;">r</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Eunjin Jun</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/04/07/spines_grids/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
