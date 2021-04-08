@@ -6,26 +6,25 @@
     
 
     
-    <title>R코딩 기초1 | Eunjin&#39;s Blog</title>
+    <title>visualization | Eunjin&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="r" />
+    <meta name="keywords" content="" />
     
-    <meta name="description" content="R 코딩 기초실행방법 Windows: Ctrl + Enter Mac: Command + Enter  변수 저장 시1a &lt;- 3 Alt + - key 누르면 된다.  변수 호출 시123print(x) #혹은x   변수 종류변수 type 숫자형 변수 1my_numeric &lt;- 17 문자형 변수 1my_character &lt;- &quot;eunj">
+    <meta name="description" content="간단하게 시각화 하는 과정 step1) 패키지 설치1install.packages(&quot;ggplot2&quot;) step2) 패키지 불러오기1library(ggplot2) step3) 데이터 불러오기1data(&quot;iris&quot;) step4) 데이터 확인하기1str(iris) step5) 가공되지 않은 Raw data 가공하기 step6)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R코딩 기초1">
-<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/23/R-edu1/index.html">
+<meta property="og:title" content="visualization">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/22/R/Visualization_R/visualization/index.html">
 <meta property="og:site_name" content="Eunjin&#39;s Blog">
-<meta property="og:description" content="R 코딩 기초실행방법 Windows: Ctrl + Enter Mac: Command + Enter  변수 저장 시1a &lt;- 3 Alt + - key 누르면 된다.  변수 호출 시123print(x) #혹은x   변수 종류변수 type 숫자형 변수 1my_numeric &lt;- 17 문자형 변수 1my_character &lt;- &quot;eunj">
+<meta property="og:description" content="간단하게 시각화 하는 과정 step1) 패키지 설치1install.packages(&quot;ggplot2&quot;) step2) 패키지 불러오기1library(ggplot2) step3) 데이터 불러오기1data(&quot;iris&quot;) step4) 데이터 확인하기1str(iris) step5) 가공되지 않은 Raw data 가공하기 step6)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/sample.png">
-<meta property="article:published_time" content="2021-03-23T13:06:56.000Z">
-<meta property="article:modified_time" content="2021-03-26T08:00:44.235Z">
+<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/iris_data.png">
+<meta property="article:published_time" content="2021-03-22T13:09:02.000Z">
+<meta property="article:modified_time" content="2021-03-26T08:00:44.230Z">
 <meta property="article:author" content="Eunjin Jun">
-<meta property="article:tag" content="r">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/sample.png">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/iris_data.png">
     
 
     
@@ -157,14 +156,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-R-edu1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-R/Visualization_R/visualization" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        R코딩 기초1
+        visualization
         </h1>
     
 
@@ -175,16 +174,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/03/23/R-edu1/" class="article-date">
-       <time datetime="2021-03-23T13:06:56.000Z" itemprop="datePublished">2021-03-23</time>
+    <a href="/2021/03/22/R/Visualization_R/visualization/" class="article-date">
+       <time datetime="2021-03-22T13:09:02.000Z" itemprop="datePublished">2021-03-22</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/03/23/R-edu1/" class="article-date">
-     <time datetime="2021-03-26T08:00:44.235Z" itemprop="dateModified">2021-03-26</time>
+  <a href="/2021/03/22/R/Visualization_R/visualization/" class="article-date">
+     <time datetime="2021-03-26T08:00:44.230Z" itemprop="dateModified">2021-03-26</time>
   </a>
 </div>
 
@@ -192,11 +191,6 @@
                 
 
                 
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/r/" rel="tag">r</a>
-    </div>
-
                 
 
                 
@@ -211,32 +205,16 @@
 
             
 
-            <p><img src="/hueman_images/sample.png"></p>
-<h1 id="R-코딩-기초"><a href="#R-코딩-기초" class="headerlink" title="R 코딩 기초"></a>R 코딩 기초</h1><h2 id="실행방법"><a href="#실행방법" class="headerlink" title="실행방법"></a>실행방법</h2><ul>
-<li>Windows: Ctrl + Enter</li>
-<li>Mac: Command + Enter</li>
+            <h2 id="간단하게-시각화-하는-과정"><a href="#간단하게-시각화-하는-과정" class="headerlink" title="간단하게 시각화 하는 과정"></a>간단하게 시각화 하는 과정</h2><ul>
+<li>step1) 패키지 설치<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;ggplot2&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>step2) 패키지 불러오기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br></pre></td></tr></table></figure></li>
+<li>step3) 데이터 불러오기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data(<span class="string">&quot;iris&quot;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>step4) 데이터 확인하기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(iris)</span><br></pre></td></tr></table></figure></li>
+<li>step5) 가공되지 않은 Raw data 가공하기</li>
+<li>step6) 시각화하기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ggplot(data=iris, </span><br><span class="line">       mapping = aes(x = Petal.Length, </span><br><span class="line">                     y = Petal.Width,</span><br><span class="line">                     colour = Species)) +</span><br><span class="line">  geom_point(size=<span class="number">3</span>)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="변수-저장-시"><a href="#변수-저장-시" class="headerlink" title="변수 저장 시"></a>변수 저장 시</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &lt;- 3</span><br></pre></td></tr></table></figure>
-<p>Alt + - key 누르면 된다. </p>
-<h2 id="변수-호출-시"><a href="#변수-호출-시" class="headerlink" title="변수 호출 시"></a>변수 호출 시</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(x) </span><br><span class="line"><span class="comment">#혹은</span></span><br><span class="line">x </span><br></pre></td></tr></table></figure>
-
-<h1 id="변수-종류"><a href="#변수-종류" class="headerlink" title="변수 종류"></a>변수 종류</h1><h2 id="변수-type"><a href="#변수-type" class="headerlink" title="변수 type"></a>변수 type</h2><ul>
-<li>숫자형 변수 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_numeric &lt;- 17</span><br></pre></td></tr></table></figure></li>
-<li>문자형 변수 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_character &lt;- <span class="string">&quot;eunjin&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li>논리형 변수 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_logical &lt;- <span class="literal">FALSE</span> </span><br><span class="line">my_logical &lt;- <span class="literal">TRUE</span> </span><br></pre></td></tr></table></figure>
-<h2 id="벡터-생성"><a href="#벡터-생성" class="headerlink" title="벡터 생성"></a>벡터 생성</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">number_vector &lt;- <span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">number_vertor &lt;- <span class="built_in">c</span>(<span class="number">1</span>,<span class="string">&quot;2&quot;</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure></li>
-<li>첫번째 라인은 숫자로만 이루어져있기 때문에 변수 type을 알아보면 “numeric” 으로 나온다. </li>
-<li>두번째 라인은 숫자, 문자가 섞여져 있다.<br>이때 컴퓨터는 문자형 -&gt; 숫자형 -&gt; 논리형 으로 저장된다.<br>따라서 두번째 라인의 변수 type은 문자형이 나온다. =&gt; “character”</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">class</span>(number_vector)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>변수 type을 알아볼때는 class()를 사용한다.</li>
-</ul>
-<h2 id="범주형-변수의-순서"><a href="#범주형-변수의-순서" class="headerlink" title="범주형 변수의 순서"></a>범주형 변수의 순서</h2><ul>
-<li>Levels: 낮음 높음<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">height_vector &lt;- <span class="built_in">c</span>(<span class="string">&quot;낮음&quot;</span>, <span class="string">&quot;높음&quot;</span>, <span class="string">&quot;낮음&quot;</span>)</span><br><span class="line">factor_height_vector &lt;- factor(height_vector)</span><br><span class="line">factor_height_vector</span><br></pre></td></tr></table></figure></li>
-<li>Levels 순서 바꾸기 =&gt; 높음 낮음<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">levels(factor_sex_vector) &lt;- <span class="built_in">c</span>(<span class="string">&quot;남성&quot;</span>, <span class="string">&quot;여성&quot;</span>)</span><br><span class="line">factor_sex_vector</span><br></pre></td></tr></table></figure></li>
-<li>Levels 이름 변경 =&gt; Levels: 매우높음 매우낮음<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">factor_height_vector &lt;- factor(factor_height_vector,</span><br><span class="line">                               levels = <span class="built_in">c</span>(<span class="string">&quot;매우높음&quot;</span>,</span><br><span class="line">                                          <span class="string">&quot;매우낮음&quot;</span>))</span><br><span class="line">factor_height_vector</span><br></pre></td></tr></table></figure></li>
-</ul>
+<p>*tap 누르면 자동입력기능 있음.<br>*help에서 ggplot sample 확인 가능.</p>
+<p><img src="/hueman_images/iris_data.png"></p>
 <h3 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/dschloe/R_edu">https://github.com/dschloe/R_edu</a></li>
 </ul>
@@ -247,7 +225,7 @@
 
 
 
-    <a data-url="https://eunjin-jun717.github.io/2021/03/23/R-edu1/" data-id="ckmpzctda0001f0vt1xx16vuh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://eunjin-jun717.github.io/2021/03/22/R/Visualization_R/visualization/" data-id="ckn84lq3h000id8vta0yu4wfs" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -317,27 +295,22 @@
             "@type": "Person",
             "name": "Eunjin Jun"
         },
-        "headline": "R코딩 기초1",
-        "image": "https://eunjin-jun717.github.io/hueman_images/sample.png",
-        "keywords": "r",
+        "headline": "visualization",
+        "image": "https://eunjin-jun717.github.io/hueman_images/iris_data.png",
+        "keywords": "",
         "genre": "",
-        "datePublished": "2021-03-23",
-        "dateCreated": "2021-03-23",
+        "datePublished": "2021-03-22",
+        "dateCreated": "2021-03-22",
         "dateModified": "2021-03-26",
-        "url": "https://eunjin-jun717.github.io/2021/03/23/R-edu1/",
-        "description": "
-R 코딩 기초실행방법
-Windows: Ctrl + Enter
-Mac: Command + Enter
-
-변수 저장 시1a &lt;- 3
-Alt + - key 누르면 된다. 
-변수 호출 시123print(x) #혹은x 
-
-변수 종류변수 type
-숫자형 변수 1my_numeric &lt;- 17
-문자형 변수 1my_character &lt;- &quot;eunj",
-        "wordCount": 335
+        "url": "https://eunjin-jun717.github.io/2021/03/22/R/Visualization_R/visualization/",
+        "description": "간단하게 시각화 하는 과정
+step1) 패키지 설치1install.packages(&quot;ggplot2&quot;)
+step2) 패키지 불러오기1library(ggplot2)
+step3) 데이터 불러오기1data(&quot;iris&quot;)
+step4) 데이터 확인하기1str(iris)
+step5) 가공되지 않은 Raw data 가공하기
+step6)",
+        "wordCount": 141
     }
 </script>
 
@@ -418,20 +391,20 @@ Alt + - key 누르면 된다.
         
 <nav id="article-nav">
     
-        <a href="/2021/03/23/R-edu2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2021/03/23/Hexo/meaning/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            R코딩 기초함수
+            What is the main and branch in Github
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2021/03/23/meaning/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/03/22/R/firstday/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">What is the main and branch in Github</p>
+        <p class="article-nav-title">How to create a blog with Hexo</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -453,7 +426,7 @@ Alt + - key 누르면 된다.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/07/spines_grids/" class="thumbnail">
+                            <a href="/2021/04/07/Python/Visualization_Python/spines_grids/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/grid_spine/output_6_0.png)" alt="" class="thumbnail-image"></span>
@@ -465,7 +438,7 @@ Alt + - key 누르면 된다.
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/07/spines_grids/" class="title"></a></p>
+                            <p class="item-title"><a href="/2021/04/07/Python/Visualization_Python/spines_grids/" class="title"></a></p>
                             <p class="item-date"><time datetime="2021-04-07T08:23:15.180Z" itemprop="datePublished">2021-04-07</time></p>
                         </div>
                     </li>
@@ -473,7 +446,7 @@ Alt + - key 누르면 된다.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/06/hexo_python/" class="thumbnail">
+                            <a href="/2021/04/06/Python/Visualization_Python/hexo_python/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/output_1_0.png)" alt="" class="thumbnail-image"></span>
@@ -485,7 +458,7 @@ Alt + - key 누르면 된다.
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/06/hexo_python/" class="title"></a></p>
+                            <p class="item-title"><a href="/2021/04/06/Python/Visualization_Python/hexo_python/" class="title"></a></p>
                             <p class="item-date"><time datetime="2021-04-06T06:51:18.658Z" itemprop="datePublished">2021-04-06</time></p>
                         </div>
                     </li>
@@ -493,7 +466,7 @@ Alt + - key 누르면 된다.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/06/speed_list_tuple/" class="thumbnail">
+                            <a href="/2021/04/06/Python/speed_list_tuple/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -505,7 +478,7 @@ Alt + - key 누르면 된다.
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/06/speed_list_tuple/" class="title"></a></p>
+                            <p class="item-title"><a href="/2021/04/06/Python/speed_list_tuple/" class="title"></a></p>
                             <p class="item-date"><time datetime="2021-04-05T15:00:00.000Z" itemprop="datePublished">2021-04-06</time></p>
                         </div>
                     </li>
@@ -533,7 +506,7 @@ Alt + - key 누르면 된다.
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/03/30/error2/" class="thumbnail">
+                            <a href="/2021/03/30/TroubleShooting/error2/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/error/encoding_error.png)" alt="Encoding error in R" class="thumbnail-image"></span>
@@ -545,7 +518,7 @@ Alt + - key 누르면 된다.
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/03/30/error2/" class="title">Encoding error in R</a></p>
+                            <p class="item-title"><a href="/2021/03/30/TroubleShooting/error2/" class="title">Encoding error in R</a></p>
                             <p class="item-date"><time datetime="2021-03-30T12:06:12.000Z" itemprop="datePublished">2021-03-30</time></p>
                         </div>
                     </li>
@@ -641,7 +614,7 @@ Alt + - key 누르면 된다.
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/23/R-edu1/';
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/22/R/Visualization_R/visualization/';
     
     (function() {
     var dsq = document.createElement('script');

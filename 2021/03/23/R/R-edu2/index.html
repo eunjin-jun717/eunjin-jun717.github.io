@@ -6,24 +6,26 @@
     
 
     
-    <title>Eunjin&#39;s Blog</title>
+    <title>R코딩 기초함수 | Eunjin&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="python" />
+    <meta name="keywords" content="r" />
     
-    <meta name="description" content="List vs Tuple in python차이점 list는 mutable 즉, 생성된 후에 변경 가능하다.tuple은 immutable 즉, 생성된 후에 변경이 불가능하다.   list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\   why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 들어있다면?&#x3D;">
+    <meta name="description" content="Visualization Practice using “counties”파일 불러오기 get working directory 라는 뜻으로 현재 위치를 알려준다.1getwd() set as working directory 라는 뜻으로 위치를 새로 설정할 수 있다.1setwd(&amp;#x27;R_NCS_2020&#x2F;1_day&#x2F;&amp;#x27;)  dplyr 설치 방법 2가지">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Eunjin&#39;s Blog">
-<meta property="og:url" content="https://eunjin-jun717.github.io/2021/04/06/speed_list_tuple/index.html">
+<meta property="og:title" content="R코딩 기초함수">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/23/R/R-edu2/index.html">
 <meta property="og:site_name" content="Eunjin&#39;s Blog">
-<meta property="og:description" content="List vs Tuple in python차이점 list는 mutable 즉, 생성된 후에 변경 가능하다.tuple은 immutable 즉, 생성된 후에 변경이 불가능하다.   list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\   why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 들어있다면?&#x3D;">
+<meta property="og:description" content="Visualization Practice using “counties”파일 불러오기 get working directory 라는 뜻으로 현재 위치를 알려준다.1getwd() set as working directory 라는 뜻으로 위치를 새로 설정할 수 있다.1setwd(&amp;#x27;R_NCS_2020&#x2F;1_day&#x2F;&amp;#x27;)  dplyr 설치 방법 2가지">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-05T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-06T06:39:59.409Z">
+<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/sample2.png">
+<meta property="article:published_time" content="2021-03-23T13:53:23.000Z">
+<meta property="article:modified_time" content="2021-03-26T08:00:44.237Z">
 <meta property="article:author" content="Eunjin Jun">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="r">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/sample2.png">
     
 
     
@@ -155,24 +157,34 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-speed_list_tuple" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-R/R-edu2" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        R코딩 기초함수
+        </h1>
+    
+
+            </header>
         
         
             <div class="article-meta">
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/04/06/speed_list_tuple/" class="article-date">
-       <time datetime="2021-04-05T15:00:00.000Z" itemprop="datePublished">2021-04-06</time>
+    <a href="/2021/03/23/R/R-edu2/" class="article-date">
+       <time datetime="2021-03-23T13:53:23.000Z" itemprop="datePublished">2021-03-23</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/04/06/speed_list_tuple/" class="article-date">
-     <time datetime="2021-04-06T06:39:59.409Z" itemprop="dateModified">2021-04-06</time>
+  <a href="/2021/03/23/R/R-edu2/" class="article-date">
+     <time datetime="2021-03-26T08:00:44.237Z" itemprop="dateModified">2021-03-26</time>
   </a>
 </div>
 
@@ -182,7 +194,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+        <a class="tag-link-link" href="/tags/r/" rel="tag">r</a>
     </div>
 
                 
@@ -199,44 +211,49 @@
 
             
 
-            <h1 id="List-vs-Tuple-in-python"><a href="#List-vs-Tuple-in-python" class="headerlink" title="List vs Tuple in python"></a>List vs Tuple in python</h1><h2 id="차이점"><a href="#차이점" class="headerlink" title="차이점"></a>차이점</h2><ol>
-<li><p>list는 <em>mutable</em> 즉, 생성된 후에 변경 <strong>가능</strong>하다.<br>tuple은 <em>immutable</em> 즉, 생성된 후에 변경이 <strong>불가능</strong>하다. </p>
+            <p><img src="/hueman_images/sample2.png"></p>
+<h2 id="Visualization-Practice-using-“counties”"><a href="#Visualization-Practice-using-“counties”" class="headerlink" title="Visualization Practice using “counties”"></a>Visualization Practice using “counties”</h2><h3 id="파일-불러오기"><a href="#파일-불러오기" class="headerlink" title="파일 불러오기"></a>파일 불러오기</h3><ul>
+<li>get working directory 라는 뜻으로 현재 위치를 알려준다.<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getwd()</span><br></pre></td></tr></table></figure></li>
+<li>set as working directory 라는 뜻으로 위치를 새로 설정할 수 있다.<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">&#x27;R_NCS_2020/1_day/&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="dplyr-설치-방법-2가지"><a href="#dplyr-설치-방법-2가지" class="headerlink" title="dplyr 설치 방법 2가지"></a>dplyr 설치 방법 2가지</h3><ul>
+<li>method1) tidyverse 설치 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;tidyverse&quot;</span>)</span><br><span class="line">library(tidyverse)</span><br></pre></td></tr></table></figure></li>
+<li>method2) dplyr만 설치 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;dplyr&quot;</span>)</span><br><span class="line">library(dplyr)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="데이터-가져오기"><a href="#데이터-가져오기" class="headerlink" title="데이터 가져오기"></a>데이터 가져오기</h3><ul>
+<li>data 폴더에 있는 counties.xlsx 파일을 가져온다.<br>만약 경로 error가 뜨면 getwd()를 하여 현재 파일 위치가 잘못되어있는지 확인해본다.</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counties &lt;- readxl::read_xlsx(<span class="string">&quot;data/counties.xslx&quot;</span>, sheet = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="데이터-확인"><a href="#데이터-확인" class="headerlink" title="데이터 확인"></a>데이터 확인</h3><ul>
+<li>glimpse 를 사용하여 counties에 무슨 변수들이 있는지 살펴볼 수 있다. <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glimpse(counties) </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Select-사용하여-원하는-변수들-추출"><a href="#Select-사용하여-원하는-변수들-추출" class="headerlink" title="Select 사용하여 원하는 변수들 추출"></a>Select 사용하여 원하는 변수들 추출</h3><ul>
+<li><p>counties 변수들 중에서 state, region, men, women, population 변수들의 데이터만 고른다.<br>select한 것을 counties_selected라는 변수 이름으로 저장한다.</p>
 </li>
-<li><p>list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\</p>
-</li>
-</ol>
-<p><em>why?</em> key값은 불변한 값만 올 수 있기 때문!<br>만약, tuple에 list가 들어있다면?<br>=&gt; key 값으로 사용 <strong>불가능</strong>함! </p>
-<ul>
-<li>참고) 문자열 또한 <strong>불변</strong>한 값이므로 dictionary의 key값으로 사용 가능하다.</li>
+<li><p>counties_selected 를 state 기준으로 내림차순 정렬한다. </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">counties_selected &lt;- counties %&gt;% </span><br><span class="line">  select(state, region, men, women, population)</span><br><span class="line">  </span><br><span class="line">counties_selected %&gt;% </span><br><span class="line">  arrange(desc(state))</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="list-대신-tuple을-사용하는-이유는"><a href="#list-대신-tuple을-사용하는-이유는" class="headerlink" title="list 대신 tuple을 사용하는 이유는?"></a><em>list</em> 대신 <em>tuple</em>을 사용하는 이유는?</h2><h2 id="메모리-크기-비교"><a href="#메모리-크기-비교" class="headerlink" title="메모리 크기 비교"></a>메모리 크기 비교</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list_1 = [<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">tuple_1 = <span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">print</span>(sys.getsizeof(list_1))</span><br><span class="line"><span class="built_in">print</span>(sys.getsizeof(tuple_1))</span><br></pre></td></tr></table></figure>
-
-<pre><code>104
-88
-</code></pre>
-<ul>
-<li>tuple이 메모리를 차이하는 것이 더 작은 것을 볼 수 있다. </li>
+<h3 id="Filter-사용하여-불필요한-것-제거하고-보기"><a href="#Filter-사용하여-불필요한-것-제거하고-보기" class="headerlink" title="Filter 사용하여 불필요한 것 제거하고 보기"></a>Filter 사용하여 불필요한 것 제거하고 보기</h3><ul>
+<li>population이 10000명 이하인 것들만 보여준다.<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;% </span><br><span class="line">  filter(population &lt; <span class="number">10000</span>)</span><br></pre></td></tr></table></figure></li>
+<li>조건이 두가지일 경우에는 아래와 같이 한다. </li>
+<li>state가 California이거나 population이 100000명 이상인 것을 추출한다. <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;% </span><br><span class="line">  filter(state == <span class="string">&quot;California&quot;</span> | population &gt; <span class="number">100000</span>)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="생성-속도"><a href="#생성-속도" class="headerlink" title="생성 속도"></a>생성 속도</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%timeit list_2=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>]</span><br><span class="line">%timeit tuple_2=<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>10000000 loops, best of 5: 57.5 ns per loop
-100000000 loops, best of 5: 16.4 ns per loop
-</code></pre>
-<ul>
-<li>tuple의 생성속도가 더 빠른 것을 확인할 수 있다.</li>
+<h3 id="Arange-함수"><a href="#Arange-함수" class="headerlink" title="Arange 함수"></a>Arange 함수</h3><ul>
+<li>오름차순, 내림차순으로 정렬 가능하다.<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;% </span><br><span class="line">  filter(state == <span class="string">&quot;California&quot;</span> | population &gt; <span class="number">100000</span>) %&gt;%</span><br><span class="line">  arrange(desc(public_work))</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="인덱싱-속도"><a href="#인덱싱-속도" class="headerlink" title="인덱싱 속도"></a>인덱싱 속도</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list_3=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">%timeit list_3[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">tuple_3=<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span></span><br><span class="line">%timeit tuple_3[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-<pre><code>10000000 loops, best of 5: 43 ns per loop
-10000000 loops, best of 5: 42.8 ns per loop
-</code></pre>
-<p>tuple이 list보다 indexing 으로 데이터에 접근하는 속도가 더 빠르다. </p>
-<h2 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h2><ul>
-<li>메모리 크기비교, 생성속도, 인덱싱 속도에서 모두 tuple의 결과가 더 빠른것을 확인 할 수 있었다. </li>
+<h3 id="Mutate-함수"><a href="#Mutate-함수" class="headerlink" title="Mutate 함수"></a>Mutate 함수</h3><ul>
+<li>새로 변수를 추가한다는 것 보다는 의미있는 데이터 발견하고자 할 때 사용한다. </li>
+<li>public workers를 구해서 배열하는 코드이다. <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">counties_seletec &lt;- counties %&gt;%</span><br><span class="line">  select(state, county, private_work, public_work, population)</span><br><span class="line"></span><br><span class="line">counties_seleteced %&gt;%</span><br><span class="line">  mutate(public_workers = population * private_work /<span class="number">100</span>) %&gt;%</span><br><span class="line">  arrange(public_workers) </span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="출처"><a href="#출처" class="headerlink" title="출처"></a>출처</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://codacoding.tistory.com/36">https://codacoding.tistory.com/36</a></li>
-<li><a target="_blank" rel="noopener" href="https://itholic.github.io/python-list-tuple/">https://itholic.github.io/python-list-tuple/</a></li>
+<h3 id="Count-함수"><a href="#Count-함수" class="headerlink" title="Count 함수"></a>Count 함수</h3><ul>
+<li>각 행의 갯수를 셀 수 있고, 정렬까지 가능하다.</li>
+<li> sort=TRUE이면 자동으로 내림차순<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;%</span><br><span class="line">   count(state, sort =<span class="literal">TRUE</span>)</span><br></pre></td></tr></table></figure></li>
+<li>가중치를 두어 주별로 걸어서 출퇴근하는 사람의 수를 카운트할 수 있다. <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">counties_selected %&gt;%</span><br><span class="line">  count(state, wt= walkers_pop)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/dschloe/R_edu">https://github.com/dschloe/R_edu</a></li>
 </ul>
 
         </div>
@@ -245,7 +262,7 @@
 
 
 
-    <a data-url="https://eunjin-jun717.github.io/2021/04/06/speed_list_tuple/" data-id="ckn5kglr90000jkvtg3of6486" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://eunjin-jun717.github.io/2021/03/23/R/R-edu2/" data-id="ckn84lq3b0005d8vtdpkae706" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -315,22 +332,21 @@
             "@type": "Person",
             "name": "Eunjin Jun"
         },
-        
-        "image": "https://eunjin-jun717.github.io",
-        "keywords": "python",
+        "headline": "R코딩 기초함수",
+        "image": "https://eunjin-jun717.github.io/hueman_images/sample2.png",
+        "keywords": "r",
         "genre": "",
-        "datePublished": "2021-04-06",
-        "dateCreated": "2021-04-06",
-        "dateModified": "2021-04-06",
-        "url": "https://eunjin-jun717.github.io/2021/04/06/speed_list_tuple/",
-        "description": "List vs Tuple in python차이점
-list는 mutable 즉, 생성된 후에 변경 가능하다.tuple은 immutable 즉, 생성된 후에 변경이 불가능하다. 
+        "datePublished": "2021-03-23",
+        "dateCreated": "2021-03-23",
+        "dateModified": "2021-03-26",
+        "url": "https://eunjin-jun717.github.io/2021/03/23/R/R-edu2/",
+        "description": "
+Visualization Practice using “counties”파일 불러오기
+get working directory 라는 뜻으로 현재 위치를 알려준다.1getwd()
+set as working directory 라는 뜻으로 위치를 새로 설정할 수 있다.1setwd(&#x27;R_NCS_2020/1_day/&#x27;)
 
-list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\
-
-
-why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 들어있다면?=",
-        "wordCount": 248
+dplyr 설치 방법 2가지",
+        "wordCount": 421
     }
 </script>
 
@@ -411,20 +427,20 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
         
 <nav id="article-nav">
     
-        <a href="/2021/04/06/hexo_python/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2021/03/26/R/Visualization_R/house_miniproj_eunjin/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            (no title)
+            주택 가격: 시각화 예제
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2021/04/05/statistic/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/03/23/R/R-edu1/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">기초 통계-상관분석</p>
+        <p class="article-nav-title">R코딩 기초1</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -446,7 +462,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/07/spines_grids/" class="thumbnail">
+                            <a href="/2021/04/07/Python/Visualization_Python/spines_grids/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/grid_spine/output_6_0.png)" alt="" class="thumbnail-image"></span>
@@ -458,7 +474,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/07/spines_grids/" class="title"></a></p>
+                            <p class="item-title"><a href="/2021/04/07/Python/Visualization_Python/spines_grids/" class="title"></a></p>
                             <p class="item-date"><time datetime="2021-04-07T08:23:15.180Z" itemprop="datePublished">2021-04-07</time></p>
                         </div>
                     </li>
@@ -466,7 +482,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/06/hexo_python/" class="thumbnail">
+                            <a href="/2021/04/06/Python/Visualization_Python/hexo_python/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/output_1_0.png)" alt="" class="thumbnail-image"></span>
@@ -478,7 +494,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/06/hexo_python/" class="title"></a></p>
+                            <p class="item-title"><a href="/2021/04/06/Python/Visualization_Python/hexo_python/" class="title"></a></p>
                             <p class="item-date"><time datetime="2021-04-06T06:51:18.658Z" itemprop="datePublished">2021-04-06</time></p>
                         </div>
                     </li>
@@ -486,7 +502,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/06/speed_list_tuple/" class="thumbnail">
+                            <a href="/2021/04/06/Python/speed_list_tuple/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -498,7 +514,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/06/speed_list_tuple/" class="title"></a></p>
+                            <p class="item-title"><a href="/2021/04/06/Python/speed_list_tuple/" class="title"></a></p>
                             <p class="item-date"><time datetime="2021-04-05T15:00:00.000Z" itemprop="datePublished">2021-04-06</time></p>
                         </div>
                     </li>
@@ -526,7 +542,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/03/30/error2/" class="thumbnail">
+                            <a href="/2021/03/30/TroubleShooting/error2/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/error/encoding_error.png)" alt="Encoding error in R" class="thumbnail-image"></span>
@@ -538,7 +554,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/03/30/error2/" class="title">Encoding error in R</a></p>
+                            <p class="item-title"><a href="/2021/03/30/TroubleShooting/error2/" class="title">Encoding error in R</a></p>
                             <p class="item-date"><time datetime="2021-03-30T12:06:12.000Z" itemprop="datePublished">2021-03-30</time></p>
                         </div>
                     </li>
@@ -634,7 +650,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://eunjin-jun717.github.io/2021/04/06/speed_list_tuple/';
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/23/R/R-edu2/';
     
     (function() {
     var dsq = document.createElement('script');

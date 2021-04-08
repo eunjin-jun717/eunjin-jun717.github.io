@@ -6,25 +6,26 @@
     
 
     
-    <title>visualization | Eunjin&#39;s Blog</title>
+    <title>troubleshooting in Hexo | Eunjin&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="hexo" />
     
-    <meta name="description" content="간단하게 시각화 하는 과정 step1) 패키지 설치1install.packages(&quot;ggplot2&quot;) step2) 패키지 불러오기1library(ggplot2) step3) 데이터 불러오기1data(&quot;iris&quot;) step4) 데이터 확인하기1str(iris) step5) 가공되지 않은 Raw data 가공하기 step6)">
+    <meta name="description" content="오류 상황: npm을 통해서 설치를 완료하였는데도 아래와 같은 오류가 발생하였다.  1bash: hexo: command not found  해결 방안 우선 node와 npm이 제대로 설치되었는지 확인할 것 12$ node -v$ npm -v   정상적으로 설치되어 있다면, 다음 step을 따를 것step 1) 자신의 blog 폴더 (ex. myblog)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="visualization">
-<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/22/visualization/index.html">
+<meta property="og:title" content="troubleshooting in Hexo">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/03/29/TroubleShooting/error/index.html">
 <meta property="og:site_name" content="Eunjin&#39;s Blog">
-<meta property="og:description" content="간단하게 시각화 하는 과정 step1) 패키지 설치1install.packages(&quot;ggplot2&quot;) step2) 패키지 불러오기1library(ggplot2) step3) 데이터 불러오기1data(&quot;iris&quot;) step4) 데이터 확인하기1str(iris) step5) 가공되지 않은 Raw data 가공하기 step6)">
+<meta property="og:description" content="오류 상황: npm을 통해서 설치를 완료하였는데도 아래와 같은 오류가 발생하였다.  1bash: hexo: command not found  해결 방안 우선 node와 npm이 제대로 설치되었는지 확인할 것 12$ node -v$ npm -v   정상적으로 설치되어 있다면, 다음 step을 따를 것step 1) 자신의 blog 폴더 (ex. myblog)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/iris_data.png">
-<meta property="article:published_time" content="2021-03-22T13:09:02.000Z">
-<meta property="article:modified_time" content="2021-03-26T08:00:44.230Z">
+<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/error/node.png">
+<meta property="article:published_time" content="2021-03-29T12:23:23.000Z">
+<meta property="article:modified_time" content="2021-03-30T23:58:47.922Z">
 <meta property="article:author" content="Eunjin Jun">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/iris_data.png">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/error/node.png">
     
 
     
@@ -156,14 +157,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-visualization" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-TroubleShooting/error" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        visualization
+        troubleshooting in Hexo
         </h1>
     
 
@@ -174,16 +175,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/03/22/visualization/" class="article-date">
-       <time datetime="2021-03-22T13:09:02.000Z" itemprop="datePublished">2021-03-22</time>
+    <a href="/2021/03/29/TroubleShooting/error/" class="article-date">
+       <time datetime="2021-03-29T12:23:23.000Z" itemprop="datePublished">2021-03-29</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/03/22/visualization/" class="article-date">
-     <time datetime="2021-03-26T08:00:44.230Z" itemprop="dateModified">2021-03-26</time>
+  <a href="/2021/03/29/TroubleShooting/error/" class="article-date">
+     <time datetime="2021-03-30T23:58:47.922Z" itemprop="dateModified">2021-03-31</time>
   </a>
 </div>
 
@@ -191,6 +192,11 @@
                 
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/hexo/" rel="tag">hexo</a>
+    </div>
+
                 
 
                 
@@ -205,18 +211,24 @@
 
             
 
-            <h2 id="간단하게-시각화-하는-과정"><a href="#간단하게-시각화-하는-과정" class="headerlink" title="간단하게 시각화 하는 과정"></a>간단하게 시각화 하는 과정</h2><ul>
-<li>step1) 패키지 설치<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">&quot;ggplot2&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-<li>step2) 패키지 불러오기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br></pre></td></tr></table></figure></li>
-<li>step3) 데이터 불러오기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data(<span class="string">&quot;iris&quot;</span>)</span><br></pre></td></tr></table></figure></li>
-<li>step4) 데이터 확인하기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(iris)</span><br></pre></td></tr></table></figure></li>
-<li>step5) 가공되지 않은 Raw data 가공하기</li>
-<li>step6) 시각화하기<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ggplot(data=iris, </span><br><span class="line">       mapping = aes(x = Petal.Length, </span><br><span class="line">                     y = Petal.Width,</span><br><span class="line">                     colour = Species)) +</span><br><span class="line">  geom_point(size=<span class="number">3</span>)</span><br></pre></td></tr></table></figure></li>
+            <h2 id="오류-상황"><a href="#오류-상황" class="headerlink" title="오류 상황"></a>오류 상황</h2><p>: npm을 통해서 설치를 완료하였는데도 아래와 같은 오류가 발생하였다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash: hexo: command not found</span><br></pre></td></tr></table></figure>
+
+<h2 id="해결-방안"><a href="#해결-방안" class="headerlink" title="해결 방안"></a>해결 방안</h2><ul>
+<li><p>우선 node와 npm이 제대로 설치되었는지 확인할 것</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure>
+<p><img src="/hueman_images/error/node.png"></p>
+</li>
+<li><p>정상적으로 설치되어 있다면, 다음 step을 따를 것<br>step 1) 자신의 blog 폴더 (ex. myblog) -&gt; node_modules -&gt; .bin<br>경로를 복사함<br><img src="/hueman_images/error/bin.png"></p>
+</li>
 </ul>
-<p>*tap 누르면 자동입력기능 있음.<br>*help에서 ggplot sample 확인 가능.</p>
-<p><img src="/hueman_images/iris_data.png"></p>
-<h3 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/dschloe/R_edu">https://github.com/dschloe/R_edu</a></li>
+<p>step 2) 시스템 속성 -&gt; 고급 탭 -&gt; 환경 변수<br><img src="/hueman_images/error/systemsetting.png"></p>
+<p>step 3) 시스템 변수에서 Path 클릭 -&gt; 편집 클릭 -&gt; 새로만들기 -&gt; 경로 붙여넣기 -&gt; 확인<br><img src="/hueman_images/error/systemsetting2.png"></p>
+<p>step 4) 다시 열어서 hexo server로 테스트해보기 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line"></span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>bash: hexo: command not found가 나오지 않는다면 해결!!</p>
+<h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.programmersought.com/article/45443350618/">https://www.programmersought.com/article/45443350618/</a></li>
 </ul>
 
         </div>
@@ -225,7 +237,7 @@
 
 
 
-    <a data-url="https://eunjin-jun717.github.io/2021/03/22/visualization/" data-id="ckmpzctdn000ef0vt29ls4ehq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://eunjin-jun717.github.io/2021/03/29/TroubleShooting/error/" data-id="ckn84lq3f000ed8vtcqtk08nx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -295,22 +307,24 @@
             "@type": "Person",
             "name": "Eunjin Jun"
         },
-        "headline": "visualization",
-        "image": "https://eunjin-jun717.github.io/hueman_images/iris_data.png",
-        "keywords": "",
+        "headline": "troubleshooting in Hexo",
+        "image": "https://eunjin-jun717.github.io/hueman_images/error/node.png",
+        "keywords": "hexo",
         "genre": "",
-        "datePublished": "2021-03-22",
-        "dateCreated": "2021-03-22",
-        "dateModified": "2021-03-26",
-        "url": "https://eunjin-jun717.github.io/2021/03/22/visualization/",
-        "description": "간단하게 시각화 하는 과정
-step1) 패키지 설치1install.packages(&quot;ggplot2&quot;)
-step2) 패키지 불러오기1library(ggplot2)
-step3) 데이터 불러오기1data(&quot;iris&quot;)
-step4) 데이터 확인하기1str(iris)
-step5) 가공되지 않은 Raw data 가공하기
-step6)",
-        "wordCount": 141
+        "datePublished": "2021-03-29",
+        "dateCreated": "2021-03-29",
+        "dateModified": "2021-03-31",
+        "url": "https://eunjin-jun717.github.io/2021/03/29/TroubleShooting/error/",
+        "description": "오류 상황: npm을 통해서 설치를 완료하였는데도 아래와 같은 오류가 발생하였다. 
+1bash: hexo: command not found
+
+해결 방안
+우선 node와 npm이 제대로 설치되었는지 확인할 것
+12$ node -v$ npm -v
+
+
+정상적으로 설치되어 있다면, 다음 step을 따를 것step 1) 자신의 blog 폴더 (ex. myblog) ",
+        "wordCount": 137
     }
 </script>
 
@@ -391,20 +405,20 @@ step6)",
         
 <nav id="article-nav">
     
-        <a href="/2021/03/23/meaning/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2021/03/30/TroubleShooting/error2/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            What is the main and branch in Github
+            Encoding error in R
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2021/03/22/firstday/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/03/26/R/for_apply/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">How to create a blog with Hexo</p>
+        <p class="article-nav-title">apply함수와 for문의 속도 비교</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -426,7 +440,7 @@ step6)",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/07/spines_grids/" class="thumbnail">
+                            <a href="/2021/04/07/Python/Visualization_Python/spines_grids/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/grid_spine/output_6_0.png)" alt="" class="thumbnail-image"></span>
@@ -438,7 +452,7 @@ step6)",
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/07/spines_grids/" class="title"></a></p>
+                            <p class="item-title"><a href="/2021/04/07/Python/Visualization_Python/spines_grids/" class="title"></a></p>
                             <p class="item-date"><time datetime="2021-04-07T08:23:15.180Z" itemprop="datePublished">2021-04-07</time></p>
                         </div>
                     </li>
@@ -446,7 +460,7 @@ step6)",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/06/hexo_python/" class="thumbnail">
+                            <a href="/2021/04/06/Python/Visualization_Python/hexo_python/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/output_1_0.png)" alt="" class="thumbnail-image"></span>
@@ -458,7 +472,7 @@ step6)",
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/06/hexo_python/" class="title"></a></p>
+                            <p class="item-title"><a href="/2021/04/06/Python/Visualization_Python/hexo_python/" class="title"></a></p>
                             <p class="item-date"><time datetime="2021-04-06T06:51:18.658Z" itemprop="datePublished">2021-04-06</time></p>
                         </div>
                     </li>
@@ -466,7 +480,7 @@ step6)",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/06/speed_list_tuple/" class="thumbnail">
+                            <a href="/2021/04/06/Python/speed_list_tuple/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -478,7 +492,7 @@ step6)",
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/06/speed_list_tuple/" class="title"></a></p>
+                            <p class="item-title"><a href="/2021/04/06/Python/speed_list_tuple/" class="title"></a></p>
                             <p class="item-date"><time datetime="2021-04-05T15:00:00.000Z" itemprop="datePublished">2021-04-06</time></p>
                         </div>
                     </li>
@@ -506,7 +520,7 @@ step6)",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/03/30/error2/" class="thumbnail">
+                            <a href="/2021/03/30/TroubleShooting/error2/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/error/encoding_error.png)" alt="Encoding error in R" class="thumbnail-image"></span>
@@ -518,7 +532,7 @@ step6)",
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/03/30/error2/" class="title">Encoding error in R</a></p>
+                            <p class="item-title"><a href="/2021/03/30/TroubleShooting/error2/" class="title">Encoding error in R</a></p>
                             <p class="item-date"><time datetime="2021-03-30T12:06:12.000Z" itemprop="datePublished">2021-03-30</time></p>
                         </div>
                     </li>
@@ -614,7 +628,7 @@ step6)",
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/22/visualization/';
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/03/29/TroubleShooting/error/';
     
     (function() {
     var dsq = document.createElement('script');
