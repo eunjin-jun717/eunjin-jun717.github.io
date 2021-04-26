@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>[Python] Series &amp; Dataframe | Eunjin&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="python" />
+    
+    <meta name="description" content="[Python] Series &amp; Dataframe Pandas의 데이터 구조: Series, Dataframe, Panel 3가지가 있다.  1. Series pandas의 1차원 자료구조  1234import pandas as pdser&#x3D; pd.Series([10,20,30,40],index&#x3D;list(&amp;#x27;abcd&amp;#x27;)) # 10,20">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Python] Series &amp; Dataframe">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/04/08/Python/series_df/index.html">
+<meta property="og:site_name" content="Eunjin&#39;s Blog">
+<meta property="og:description" content="[Python] Series &amp; Dataframe Pandas의 데이터 구조: Series, Dataframe, Panel 3가지가 있다.  1. Series pandas의 1차원 자료구조  1234import pandas as pdser&#x3D; pd.Series([10,20,30,40],index&#x3D;list(&amp;#x27;abcd&amp;#x27;)) # 10,20">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/python/series_df.png">
+<meta property="article:published_time" content="2021-04-07T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-26T08:13:14.034Z">
+<meta property="article:author" content="Eunjin Jun">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/python/series_df.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Eunjin&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Python/series_df" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Python] Series &amp; Dataframe
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/04/08/Python/series_df/" class="article-date">
+       <time datetime="2021-04-07T15:00:00.000Z" itemprop="datePublished">2021-04-08</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/04/08/Python/series_df/" class="article-date">
+     <time datetime="2021-04-26T08:13:14.034Z" itemprop="dateModified">2021-04-26</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h1 id="Python-Series-amp-Dataframe"><a href="#Python-Series-amp-Dataframe" class="headerlink" title="[Python] Series &amp; Dataframe"></a>[Python] Series &amp; Dataframe</h1><ul>
+<li>Pandas의 데이터 구조<br>: Series, Dataframe, Panel 3가지가 있다.<br><img src="/hueman_images/python/series_df.png" alt="series and dataframe"></li>
+</ul>
+<h2 id="1-Series"><a href="#1-Series" class="headerlink" title="1. Series"></a>1. Series</h2><ul>
+<li>pandas의 1차원 자료구조</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">ser= pd.Series([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>],index=<span class="built_in">list</span>(<span class="string">&#x27;abcd&#x27;</span>)) <span class="comment"># 10,20,30,40의 리스트를 만드는데 이때의 index는 a,b,c,d로 지정</span></span><br><span class="line">ser</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>a    10
+b    20
+c    30
+d    40
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(ser[<span class="number">3</span>],ser[<span class="number">2</span>],ser[<span class="number">1</span>],ser[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(ser[<span class="string">&#x27;d&#x27;</span>],ser[<span class="string">&#x27;c&#x27;</span>],ser[<span class="string">&#x27;b&#x27;</span>],ser[<span class="string">&#x27;a&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>40 30 20 10
+40 30 20 10
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(ser[<span class="string">&#x27;a&#x27;</span>:<span class="string">&#x27;d&#x27;</span>]) <span class="comment">#index 문자로 slicing 하면 마지막까지 포함됨</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>a    10
+b    20
+c    30
+d    40
+dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(ser[<span class="number">0</span>:<span class="number">3</span>]) <span class="comment">#index 숫자로 slicing 했을 때는 마지막이 포함되지 않음</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>a    10
+b    20
+c    30
+dtype: int64
+</code></pre>
+<h2 id="2-Dataframe"><a href="#2-Dataframe" class="headerlink" title="2. Dataframe"></a>2. Dataframe</h2><ul>
+<li>pandas의 2차원 자료구조</li>
+<li>행과 열</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data=&#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;bella&#x27;</span>,<span class="string">&#x27;charlie&#x27;</span>],</span><br><span class="line">      <span class="string">&#x27;age&#x27;</span>:[<span class="number">25</span>,<span class="number">27</span>],</span><br><span class="line">      <span class="string">&#x27;birthyear&#x27;</span>:[<span class="number">97</span>,<span class="number">95</span>]</span><br><span class="line">      &#125;</span><br><span class="line">df1 = pd.DataFrame(data, index=<span class="built_in">list</span>(<span class="string">&#x27;bc&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(df1)</span><br><span class="line"><span class="built_in">print</span>(df1.info())</span><br></pre></td></tr></table></figure>
+
+<pre><code>      name  age  birthyear
+b    bella   25         97
+c  charlie   27         95
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 2 entries, b to c
+Data columns (total 3 columns):
+ #   Column     Non-Null Count  Dtype 
+---  ------     --------------  ----- 
+ 0   name       2 non-null      object
+ 1   age        2 non-null      int64 
+ 2   birthyear  2 non-null      int64 
+dtypes: int64(2), object(1)
+memory usage: 64.0+ bytes
+None
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df1.dtypes) <span class="comment"># column의 datatype을 반환</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>name         object
+age           int64
+birthyear     int64
+dtype: object
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df1.T) <span class="comment"># dataframe을 치환함, 행과 열의 데이터를 치환한다. </span></span><br><span class="line"><span class="comment"># 2*3 -&gt; 3*2</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>               b        c
+name       bella  charlie
+age           25       27
+birthyear     97       95
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df1.values) <span class="comment"># 값들을 반환</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>[[&#39;bella&#39; 25 97]
+ [&#39;charlie&#39; 27 95]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df1.index) <span class="comment"># index를 반환</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Index([&#39;b&#39;, &#39;c&#39;], dtype=&#39;object&#39;)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df1.columns) <span class="comment"># column 명을 반환</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Index([&#39;name&#39;, &#39;age&#39;, &#39;birthyear&#39;], dtype=&#39;object&#39;)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data2=&#123;<span class="string">&#x27;color&#x27;</span>:[<span class="string">&#x27;red&#x27;</span>,<span class="string">&#x27;orange&#x27;</span>,<span class="string">&#x27;yellow&#x27;</span>,<span class="string">&#x27;green&#x27;</span>,<span class="string">&#x27;blue&#x27;</span>],</span><br><span class="line">      <span class="string">&#x27;flower&#x27;</span>:[<span class="string">&#x27;rose&#x27;</span>,<span class="string">&#x27;daisy&#x27;</span>,<span class="string">&#x27;lotus&#x27;</span>,<span class="string">&#x27;tulips&#x27;</span>,<span class="string">&#x27;calendula&#x27;</span>],</span><br><span class="line">      <span class="string">&#x27;season&#x27;</span>:[<span class="string">&#x27;spring&#x27;</span>,<span class="string">&#x27;spring&#x27;</span>,<span class="string">&#x27;winter&#x27;</span>,<span class="string">&#x27;summer&#x27;</span>,<span class="string">&#x27;fall&#x27;</span>],</span><br><span class="line">       <span class="string">&#x27;month&#x27;</span>:[<span class="number">10</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">11</span>]</span><br><span class="line">      &#125;</span><br><span class="line">df2=pd.DataFrame(data2,index=<span class="built_in">list</span>(<span class="string">&#x27;abcde&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(df2)</span><br></pre></td></tr></table></figure>
+
+<pre><code>    color     flower  season  month
+a     red       rose  spring     10
+b  orange      daisy  spring      5
+c  yellow      lotus  winter      6
+d   green     tulips  summer      7
+e    blue  calendula    fall     11
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.head(<span class="number">3</span>) <span class="comment"># 상위데이터 3개</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>color</th>
+      <th>flower</th>
+      <th>season</th>
+      <th>month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>red</td>
+      <td>rose</td>
+      <td>spring</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>orange</td>
+      <td>daisy</td>
+      <td>spring</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>yellow</td>
+      <td>lotus</td>
+      <td>winter</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.tail(<span class="number">2</span>) <span class="comment"># 하위데이터 2개</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>color</th>
+      <th>flower</th>
+      <th>season</th>
+      <th>month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>d</th>
+      <td>green</td>
+      <td>tulips</td>
+      <td>summer</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>blue</td>
+      <td>calendula</td>
+      <td>fall</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.sort_index(axis=<span class="number">0</span>, ascending=<span class="literal">False</span>) <span class="comment">#axis=0일 경우, index 이름 기준 정렬, 내림차순</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>color</th>
+      <th>flower</th>
+      <th>season</th>
+      <th>month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>e</th>
+      <td>blue</td>
+      <td>calendula</td>
+      <td>fall</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>green</td>
+      <td>tulips</td>
+      <td>summer</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>yellow</td>
+      <td>lotus</td>
+      <td>winter</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>orange</td>
+      <td>daisy</td>
+      <td>spring</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>red</td>
+      <td>rose</td>
+      <td>spring</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.sort_index(axis=<span class="number">1</span>) <span class="comment">#axis=1일 경우, index의 column 이름 기준 정렬, 오름차순</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>color</th>
+      <th>flower</th>
+      <th>month</th>
+      <th>season</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>a</th>
+      <td>red</td>
+      <td>rose</td>
+      <td>10</td>
+      <td>spring</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>orange</td>
+      <td>daisy</td>
+      <td>5</td>
+      <td>spring</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>yellow</td>
+      <td>lotus</td>
+      <td>6</td>
+      <td>winter</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>green</td>
+      <td>tulips</td>
+      <td>7</td>
+      <td>summer</td>
+    </tr>
+    <tr>
+      <th>e</th>
+      <td>blue</td>
+      <td>calendula</td>
+      <td>11</td>
+      <td>fall</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.sort_values(<span class="string">&#x27;color&#x27;</span>) <span class="comment"># index명이나 column명 입력하면 키값이 정렬됨 </span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>color</th>
+      <th>flower</th>
+      <th>season</th>
+      <th>month</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>e</th>
+      <td>blue</td>
+      <td>calendula</td>
+      <td>fall</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>green</td>
+      <td>tulips</td>
+      <td>summer</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>orange</td>
+      <td>daisy</td>
+      <td>spring</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td>red</td>
+      <td>rose</td>
+      <td>spring</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td>yellow</td>
+      <td>lotus</td>
+      <td>winter</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://harryp.tistory.com/868">https://harryp.tistory.com/868</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://eunjin-jun717.github.io/2021/04/08/Python/series_df/" data-id="cknybqz9h0006eovt0x9v2tfd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Eunjin Jun"
+        },
+        "headline": "[Python] Series &amp; Dataframe",
+        "image": "https://eunjin-jun717.github.io/hueman_images/python/series_df.png",
+        "keywords": "python",
+        "genre": "",
+        "datePublished": "2021-04-08",
+        "dateCreated": "2021-04-08",
+        "dateModified": "2021-04-26",
+        "url": "https://eunjin-jun717.github.io/2021/04/08/Python/series_df/",
+        "description": "[Python] Series &amp; Dataframe
+Pandas의 데이터 구조: Series, Dataframe, Panel 3가지가 있다.
+
+1. Series
+pandas의 1차원 자료구조
+
+1234import pandas as pdser= pd.Series([10,20,30,40],index=list(&#x27;abcd&#x27;)) # 10,20",
+        "wordCount": 1970
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/eunjin-Jun717" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/04/14/Python/ml-dtree/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [ML] Decision Tree
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/04/07/Python/Visualization_Python/spines_grids/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Python]시각화 코드 실습</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/26/Python/Kaggle/tps-april-eda-feature-engineering/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://ww.namu.la/s/1cc50931b5875401a9465ba06eaaf3d357ebfeabdf50346cd03636ab60ef0a9783a060b2c9cc7808148cd2a075699fa0f094e7f34df4a69fd5fdeb31137a37ef6e3a6c57a0b629606097a954052b7abba6a51a1a32ed5be9a92174b2ada23080602e6277fd7f0a200ddffcbd5b581746)" alt="" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/04/26/Python/Kaggle/tps-april-eda-feature-engineering/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2021-04-26T07:52:01.941Z" itemprop="datePublished">2021-04-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/20/Python/textmining/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/04/20/Python/textmining/" class="title">[ML]텍스트 마아닝</a></p>
+                            <p class="item-date"><time datetime="2021-04-19T15:00:00.000Z" itemprop="datePublished">2021-04-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/15/Python/catboost/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/hueman_images/python/ml/cb1.png)" alt="[ML] Catboost" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/04/15/Python/catboost/" class="title">[ML] Catboost</a></p>
+                            <p class="item-date"><time datetime="2021-04-14T15:00:00.000Z" itemprop="datePublished">2021-04-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/15/Python/ml-gradient/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/hueman_images/python/ml/gb1.png)" alt="[ML] Gradient Boosting" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/04/15/Python/ml-gradient/" class="title">[ML] Gradient Boosting</a></p>
+                            <p class="item-date"><time datetime="2021-04-14T15:00:00.000Z" itemprop="datePublished">2021-04-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/14/Python/ml-dtree/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/hueman_images/python/ml/dt1.png)" alt="[ML] Decision Tree" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/04/14/Python/ml-dtree/" class="title">[ML] Decision Tree</a></p>
+                            <p class="item-date"><time datetime="2021-04-13T15:00:00.000Z" itemprop="datePublished">2021-04-14</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/r/" rel="tag">r</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ML/" style="font-size: 10px;">ML</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/r/" style="font-size: 16.67px;">r</a> <a href="/tags/statistic/" style="font-size: 10px;">statistic</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Eunjin Jun</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/04/08/Python/series_df/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
