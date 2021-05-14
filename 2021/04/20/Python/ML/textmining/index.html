@@ -6,26 +6,26 @@
     
 
     
-    <title>[ML] Gradient Boosting | Eunjin&#39;s Blog</title>
+    <title>[ML]텍스트 마이닝 | Eunjin&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="python" />
+    <meta name="keywords" content="ML" />
     
-    <meta name="description" content="[Machine Learning] Gradient Boosting Catboost, XGBoost, LightGBM의 기반이 되는 부스팅이다.1. 과정1) 최초, 평균 값으로 예측 Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 방법은, 먼저 weight의 평균값으로 예측하는 것이다. (avg weight &#x3D;">
+    <meta name="description" content="[ML] 텍스트 마이닝(Text Mining)이란?1. 개념 텍스트 마이닝은 비정형 및 반 정형 데이터에 대하여 자연어 처리 기술과 문서 처리 기술을 적용하여 유용한 정보를 추출, 가공하는 목적으로 하는 기술이다. 대부분의 텍스트 데이터베이스에 저장된 데이터는 반구조적 데이터이다.  이때, 반구조적 데이터란? 완전히 구조적이지도 않고 완전히 비구조적이지도">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[ML] Gradient Boosting">
-<meta property="og:url" content="https://eunjin-jun717.github.io/2021/04/15/Python/ml-gradient/index.html">
+<meta property="og:title" content="[ML]텍스트 마이닝">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/04/20/Python/ML/textmining/index.html">
 <meta property="og:site_name" content="Eunjin&#39;s Blog">
-<meta property="og:description" content="[Machine Learning] Gradient Boosting Catboost, XGBoost, LightGBM의 기반이 되는 부스팅이다.1. 과정1) 최초, 평균 값으로 예측 Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 방법은, 먼저 weight의 평균값으로 예측하는 것이다. (avg weight &#x3D;">
+<meta property="og:description" content="[ML] 텍스트 마이닝(Text Mining)이란?1. 개념 텍스트 마이닝은 비정형 및 반 정형 데이터에 대하여 자연어 처리 기술과 문서 처리 기술을 적용하여 유용한 정보를 추출, 가공하는 목적으로 하는 기술이다. 대부분의 텍스트 데이터베이스에 저장된 데이터는 반구조적 데이터이다.  이때, 반구조적 데이터란? 완전히 구조적이지도 않고 완전히 비구조적이지도">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/python/ml/gb1.png">
-<meta property="article:published_time" content="2021-04-14T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-16T00:05:29.946Z">
+<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/python/ml/tm1.png">
+<meta property="article:published_time" content="2021-04-19T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-14T00:15:21.186Z">
 <meta property="article:author" content="Eunjin Jun">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="ML">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/python/ml/gb1.png">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/python/ml/tm1.png">
     
 
     
@@ -157,14 +157,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-Python/ml-gradient" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-Python/ML/textmining" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [ML] Gradient Boosting
+        [ML]텍스트 마이닝
         </h1>
     
 
@@ -175,16 +175,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/04/15/Python/ml-gradient/" class="article-date">
-       <time datetime="2021-04-14T15:00:00.000Z" itemprop="datePublished">2021-04-15</time>
+    <a href="/2021/04/20/Python/ML/textmining/" class="article-date">
+       <time datetime="2021-04-19T15:00:00.000Z" itemprop="datePublished">2021-04-20</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/04/15/Python/ml-gradient/" class="article-date">
-     <time datetime="2021-04-16T00:05:29.946Z" itemprop="dateModified">2021-04-16</time>
+  <a href="/2021/04/20/Python/ML/textmining/" class="article-date">
+     <time datetime="2021-05-14T00:15:21.186Z" itemprop="dateModified">2021-05-14</time>
   </a>
 </div>
 
@@ -194,7 +194,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+        <a class="tag-link-link" href="/tags/ML/" rel="tag">ML</a>
     </div>
 
                 
@@ -211,33 +211,26 @@
 
             
 
-            <h1 id="Machine-Learning-Gradient-Boosting"><a href="#Machine-Learning-Gradient-Boosting" class="headerlink" title="[Machine Learning] Gradient Boosting"></a>[Machine Learning] Gradient Boosting</h1><ul>
-<li>Catboost, XGBoost, LightGBM의 기반이 되는 부스팅이다.<h2 id="1-과정"><a href="#1-과정" class="headerlink" title="1. 과정"></a>1. 과정</h2><h3 id="1-최초-평균-값으로-예측"><a href="#1-최초-평균-값으로-예측" class="headerlink" title="1) 최초, 평균 값으로 예측"></a>1) 최초, 평균 값으로 예측</h3><img src="/hueman_images/python/ml/gb1.png"></li>
-<li>Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 방법은, 먼저 weight의 평균값으로 예측하는 것이다. (avg weight = 71.2)</li>
+            <h2 id="ML-텍스트-마이닝-Text-Mining-이란"><a href="#ML-텍스트-마이닝-Text-Mining-이란" class="headerlink" title="[ML] 텍스트 마이닝(Text Mining)이란?"></a>[ML] 텍스트 마이닝(Text Mining)이란?</h2><h3 id="1-개념"><a href="#1-개념" class="headerlink" title="1. 개념"></a>1. 개념</h3><ul>
+<li>텍스트 마이닝은 비정형 및 반 정형 데이터에 대하여 자연어 처리 기술과 문서 처리 기술을 적용하여 유용한 정보를 추출, 가공하는 목적으로 하는 기술이다.</li>
+<li>대부분의 텍스트 데이터베이스에 저장된 데이터는 반구조적 데이터이다. </li>
+<li>이때, 반구조적 데이터란? 완전히 구조적이지도 않고 완전히 비구조적이지도 않은 데이터를 의미</li>
 </ul>
-<h3 id="2-예측-값과-실제-값의-오차-구하기"><a href="#2-예측-값과-실제-값의-오차-구하기" class="headerlink" title="2) 예측 값과 실제 값의 오차 구하기"></a>2) 예측 값과 실제 값의 오차 구하기</h3><ul>
-<li>Residual(오차)들을 계산해보자. 당연히 클 수밖에 없다.<br><img src="/hueman_images/python/ml/gb2.png"></li>
+<h3 id="2-데이터-마이닝과-텍스트-마이닝의-비교"><a href="#2-데이터-마이닝과-텍스트-마이닝의-비교" class="headerlink" title="2. 데이터 마이닝과 텍스트 마이닝의 비교"></a>2. 데이터 마이닝과 텍스트 마이닝의 비교</h3><p><img src="/hueman_images/python/ml/tm1.png" alt="text mining"></p>
+<h3 id="3-텍스트-마이닝의-문제점"><a href="#3-텍스트-마이닝의-문제점" class="headerlink" title="3. 텍스트 마이닝의 문제점"></a>3. 텍스트 마이닝의 문제점</h3><ul>
+<li>자연어에 영향을 많이 받는다. </li>
+<li>분석 결과물 자체로 어떤 성과를 보기가 어렵다. </li>
 </ul>
-<h3 id="3-오차-값을-예측하는-Tree-만들기"><a href="#3-오차-값을-예측하는-Tree-만들기" class="headerlink" title="3) 오차 값을 예측하는 Tree 만들기"></a>3) 오차 값을 예측하는 Tree 만들기</h3><ul>
-<li>위에서 계산한 오차를, dataset의 feature들(height, favorite color, gender)을 가지고 트리를 만들어 예측한다.<br><img src="/hueman_images/python/ml/gb3.png"></li>
-<li>Leaf node에 분류되 값들이 여러 개 있는 경우에는 평균을 내서 하나의 값으로 만들자<br><img src="/hueman_images/python/ml/gb4.png"></li>
+<h3 id="4-텍스트-마이닝이-요구하는-기법"><a href="#4-텍스트-마이닝이-요구하는-기법" class="headerlink" title="4. 텍스트 마이닝이 요구하는 기법"></a>4. 텍스트 마이닝이 요구하는 기법</h3><ul>
+<li>텍스트 마아닝은 “데이터 마이닝 기법” 이외에도 <em>자연어 처리기술, 문서처리 기술</em>을 추가로 요구한다. </li>
 </ul>
-<h3 id="4-Learning-rate를-적용하여-기존-예측-값-업데이트하기"><a href="#4-Learning-rate를-적용하여-기존-예측-값-업데이트하기" class="headerlink" title="4) Learning rate를 적용하여, 기존 예측 값 업데이트하기"></a>4) Learning rate를 적용하여, 기존 예측 값 업데이트하기</h3><ul>
-<li>오차 값(16.8)에 원래의 예측값(71.2)을 더해주어 업데이트한다. </li>
-<li>그러나 이때 값은 88이다. 이 값은 원래의 weight와 동일하다.</li>
-<li>그냥 더해주기만 하면 기존 dataset에는 완벽히 fitted하지만, new dataset에는 안맞을 가능성이 높다</li>
-<li>따라서 그냥 더하지 않고 learning rate만큼 더해준다. </li>
-<li>여기서는 learning rate를 0.1로 잡아준다.<br><img src="/hueman_images/python/ml/gb5.png"></li>
-<li>0.1을 곱해서 더해주니 예측값은 72.9가 나왔다. </li>
-<li>처음 예측값(71.2) -&gt; 현재 예측값(72.9) </li>
-<li>원래의 weight는 88이니 이전보다 오차가 줄어들었다. </li>
-<li>또 다시 원래의 데이터 값에 현재 예측값을 뺀 오차에 대한 트리를 만들며 일정 loop를 반복하다보면 점점 원래의 값인 88에 가까워 진다.</li>
-<li>즉, High Variance를 피하면서 점진적으로 학습시키는 것이다.</li>
+<h3 id="5-불용어의-정의"><a href="#5-불용어의-정의" class="headerlink" title="5. 불용어의 정의"></a>5. 불용어의 정의</h3><ul>
+<li>분석하는데 있어서 크게 의미가 없는 단어들, 예를 들면 조사, 접미사 등이 있다. </li>
 </ul>
-<h3 id="5-전체적인-구조"><a href="#5-전체적인-구조" class="headerlink" title="5) 전체적인 구조"></a>5) 전체적인 구조</h3><p><img src="/hueman_images/python/ml/gb6.png"></p>
-<h4 id="References"><a href="#References" class="headerlink" title="References"></a><em>References</em></h4><ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=2xudPOBz-vs">https://www.youtube.com/watch?v=2xudPOBz-vs</a></li>
-<li><a target="_blank" rel="noopener" href="https://dailyheumsi.tistory.com/116?category=815369">https://dailyheumsi.tistory.com/116?category=815369</a></li>
+<p><em>References</em></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://iamdaisy.tistory.com/29">https://iamdaisy.tistory.com/29</a></li>
+<li><a target="_blank" rel="noopener" href="https://wikidocs.net/book/2155">https://wikidocs.net/book/2155</a></li>
 </ul>
 
         </div>
@@ -246,7 +239,7 @@
 
 
 
-    <a data-url="https://eunjin-jun717.github.io/2021/04/15/Python/ml-gradient/" data-id="cknybqz9g0003eovtckj35yiv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://eunjin-jun717.github.io/2021/04/20/Python/ML/textmining/" data-id="ckonkm42j000570vt5s2ca28p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -316,18 +309,19 @@
             "@type": "Person",
             "name": "Eunjin Jun"
         },
-        "headline": "[ML] Gradient Boosting",
-        "image": "https://eunjin-jun717.github.io/hueman_images/python/ml/gb1.png",
-        "keywords": "python",
+        "headline": "[ML]텍스트 마이닝",
+        "image": "https://eunjin-jun717.github.io/hueman_images/python/ml/tm1.png",
+        "keywords": "ML",
         "genre": "",
-        "datePublished": "2021-04-15",
-        "dateCreated": "2021-04-15",
-        "dateModified": "2021-04-16",
-        "url": "https://eunjin-jun717.github.io/2021/04/15/Python/ml-gradient/",
-        "description": "[Machine Learning] Gradient Boosting
-Catboost, XGBoost, LightGBM의 기반이 되는 부스팅이다.1. 과정1) 최초, 평균 값으로 예측
-Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 방법은, 먼저 weight의 평균값으로 예측하는 것이다. (avg weight = ",
-        "wordCount": 225
+        "datePublished": "2021-04-20",
+        "dateCreated": "2021-04-20",
+        "dateModified": "2021-05-14",
+        "url": "https://eunjin-jun717.github.io/2021/04/20/Python/ML/textmining/",
+        "description": "[ML] 텍스트 마이닝(Text Mining)이란?1. 개념
+텍스트 마이닝은 비정형 및 반 정형 데이터에 대하여 자연어 처리 기술과 문서 처리 기술을 적용하여 유용한 정보를 추출, 가공하는 목적으로 하는 기술이다.
+대부분의 텍스트 데이터베이스에 저장된 데이터는 반구조적 데이터이다. 
+이때, 반구조적 데이터란? 완전히 구조적이지도 않고 완전히 비구조적이지도 ",
+        "wordCount": 139
     }
 </script>
 
@@ -408,20 +402,20 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
         
 <nav id="article-nav">
     
-        <a href="/2021/04/15/Python/catboost/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2021/04/26/Python/Kaggle/tps-april-eda-feature-engineering/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [ML] Catboost
+            [Python] Kaggle TPS-Playground-April
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2021/04/14/Python/ml-dtree/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/04/15/Python/ML/catboost/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[ML] Decision Tree</p>
+        <p class="article-nav-title">[ML] Catboost</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -446,7 +440,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
                             <a href="/2021/04/26/Python/Kaggle/tps-april-eda-feature-engineering/" class="thumbnail">
     
     
-        <span style="background-image:url(/hueman_images/python/kaggle/titanic.png)" alt="" class="thumbnail-image"></span>
+        <span style="background-image:url(/hueman_images/python/kaggle/titanic.png)" alt="[Python] Kaggle TPS-Playground-April" class="thumbnail-image"></span>
     
     
 </a>
@@ -455,18 +449,18 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/26/Python/Kaggle/tps-april-eda-feature-engineering/" class="title"></a></p>
-                            <p class="item-date"><time datetime="2021-04-26T07:52:01.941Z" itemprop="datePublished">2021-04-26</time></p>
+                            <p class="item-title"><a href="/2021/04/26/Python/Kaggle/tps-april-eda-feature-engineering/" class="title">[Python] Kaggle TPS-Playground-April</a></p>
+                            <p class="item-date"><time datetime="2021-04-25T15:00:00.000Z" itemprop="datePublished">2021-04-26</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/20/Python/textmining/" class="thumbnail">
+                            <a href="/2021/04/20/Python/ML/textmining/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/hueman_images/python/ml/tm1.png)" alt="[ML]텍스트 마이닝" class="thumbnail-image"></span>
     
     
 </a>
@@ -475,7 +469,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/20/Python/textmining/" class="title">[ML]텍스트 마아닝</a></p>
+                            <p class="item-title"><a href="/2021/04/20/Python/ML/textmining/" class="title">[ML]텍스트 마이닝</a></p>
                             <p class="item-date"><time datetime="2021-04-19T15:00:00.000Z" itemprop="datePublished">2021-04-20</time></p>
                         </div>
                     </li>
@@ -483,7 +477,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/15/Python/catboost/" class="thumbnail">
+                            <a href="/2021/04/15/Python/ML/catboost/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/python/ml/cb1.png)" alt="[ML] Catboost" class="thumbnail-image"></span>
@@ -495,7 +489,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/15/Python/catboost/" class="title">[ML] Catboost</a></p>
+                            <p class="item-title"><a href="/2021/04/15/Python/ML/catboost/" class="title">[ML] Catboost</a></p>
                             <p class="item-date"><time datetime="2021-04-14T15:00:00.000Z" itemprop="datePublished">2021-04-15</time></p>
                         </div>
                     </li>
@@ -503,7 +497,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/15/Python/ml-gradient/" class="thumbnail">
+                            <a href="/2021/04/15/Python/ML/ml-gradient/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/python/ml/gb1.png)" alt="[ML] Gradient Boosting" class="thumbnail-image"></span>
@@ -515,7 +509,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/15/Python/ml-gradient/" class="title">[ML] Gradient Boosting</a></p>
+                            <p class="item-title"><a href="/2021/04/15/Python/ML/ml-gradient/" class="title">[ML] Gradient Boosting</a></p>
                             <p class="item-date"><time datetime="2021-04-14T15:00:00.000Z" itemprop="datePublished">2021-04-15</time></p>
                         </div>
                     </li>
@@ -523,7 +517,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/04/14/Python/ml-dtree/" class="thumbnail">
+                            <a href="/2021/04/14/Python/ML/ml-dtree/" class="thumbnail">
     
     
         <span style="background-image:url(/hueman_images/python/ml/dt1.png)" alt="[ML] Decision Tree" class="thumbnail-image"></span>
@@ -535,7 +529,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/04/14/Python/ml-dtree/" class="title">[ML] Decision Tree</a></p>
+                            <p class="item-title"><a href="/2021/04/14/Python/ML/ml-dtree/" class="title">[ML] Decision Tree</a></p>
                             <p class="item-date"><time datetime="2021-04-13T15:00:00.000Z" itemprop="datePublished">2021-04-14</time></p>
                         </div>
                     </li>
@@ -562,7 +556,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/r/" rel="tag">r</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/r/" rel="tag">r</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/statistic/" rel="tag">statistic</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -631,7 +625,7 @@ Height, favorite color, gender로 weight을 ‘일반적’으로 예측하는 �
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://eunjin-jun717.github.io/2021/04/15/Python/ml-gradient/';
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/04/20/Python/ML/textmining/';
     
     (function() {
     var dsq = document.createElement('script');
