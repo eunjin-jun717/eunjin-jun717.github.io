@@ -6,24 +6,26 @@
     
 
     
-    <title>[Python] List vs Tuple | Eunjin&#39;s Blog</title>
+    <title>[virtual enviroments] Anaconda 가상환경 | Eunjin&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="python" />
+    <meta name="keywords" content="conda" />
     
-    <meta name="description" content="List vs Tuple in python차이점 list는 mutable 즉, 생성된 후에 변경 가능하다.tuple은 immutable 즉, 생성된 후에 변경이 불가능하다.   list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\   why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 들어있다면?&#x3D;">
+    <meta name="description" content="references  https:&#x2F;&#x2F;yganalyst.github.io&#x2F;pythonic&#x2F;anaconda_env_1&#x2F; https:&#x2F;&#x2F;chancoding.tistory.com&#x2F;85  [Virtual Environments] 가상환경1. 가상환경이란? 사용자가 컴퓨팅 환경과 다른 사용자의 작업 모두와 상호작용할 수 있는 네트워크 응용 프로그램이다.    즉, 독">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Python] List vs Tuple">
-<meta property="og:url" content="https://eunjin-jun717.github.io/2021/04/06/Python/speed_list_tuple/index.html">
+<meta property="og:title" content="[virtual enviroments] Anaconda 가상환경">
+<meta property="og:url" content="https://eunjin-jun717.github.io/2021/06/09/conda/virtualenv/index.html">
 <meta property="og:site_name" content="Eunjin&#39;s Blog">
-<meta property="og:description" content="List vs Tuple in python차이점 list는 mutable 즉, 생성된 후에 변경 가능하다.tuple은 immutable 즉, 생성된 후에 변경이 불가능하다.   list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\   why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 들어있다면?&#x3D;">
+<meta property="og:description" content="references  https:&#x2F;&#x2F;yganalyst.github.io&#x2F;pythonic&#x2F;anaconda_env_1&#x2F; https:&#x2F;&#x2F;chancoding.tistory.com&#x2F;85  [Virtual Environments] 가상환경1. 가상환경이란? 사용자가 컴퓨팅 환경과 다른 사용자의 작업 모두와 상호작용할 수 있는 네트워크 응용 프로그램이다.    즉, 독">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-05T15:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-26T08:13:14.035Z">
+<meta property="og:image" content="https://eunjin-jun717.github.io/hueman_images/conda/conda1.png">
+<meta property="article:published_time" content="2021-06-08T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-09T01:19:02.573Z">
 <meta property="article:author" content="Eunjin Jun">
-<meta property="article:tag" content="python">
+<meta property="article:tag" content="conda">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://eunjin-jun717.github.io/hueman_images/conda/conda1.png">
     
 
     
@@ -174,14 +176,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-Python/speed_list_tuple" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-conda/virtualenv" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [Python] List vs Tuple
+        [virtual enviroments] Anaconda 가상환경
         </h1>
     
 
@@ -192,16 +194,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/04/06/Python/speed_list_tuple/" class="article-date">
-       <time datetime="2021-04-05T15:00:00.000Z" itemprop="datePublished">2021-04-06</time>
+    <a href="/2021/06/09/conda/virtualenv/" class="article-date">
+       <time datetime="2021-06-08T15:00:00.000Z" itemprop="datePublished">2021-06-09</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/04/06/Python/speed_list_tuple/" class="article-date">
-     <time datetime="2021-04-26T08:13:14.035Z" itemprop="dateModified">2021-04-26</time>
+  <a href="/2021/06/09/conda/virtualenv/" class="article-date">
+     <time datetime="2021-06-09T01:19:02.573Z" itemprop="dateModified">2021-06-09</time>
   </a>
 </div>
 
@@ -211,7 +213,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+        <a class="tag-link-link" href="/tags/conda/" rel="tag">conda</a>
     </div>
 
                 
@@ -228,44 +230,54 @@
 
             
 
-            <h1 id="List-vs-Tuple-in-python"><a href="#List-vs-Tuple-in-python" class="headerlink" title="List vs Tuple in python"></a>List vs Tuple in python</h1><h2 id="차이점"><a href="#차이점" class="headerlink" title="차이점"></a>차이점</h2><ol>
-<li><p>list는 <em>mutable</em> 즉, 생성된 후에 변경 <strong>가능</strong>하다.<br>tuple은 <em>immutable</em> 즉, 생성된 후에 변경이 <strong>불가능</strong>하다. </p>
+            <p><em>references</em></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yganalyst.github.io/pythonic/anaconda_env_1/">https://yganalyst.github.io/pythonic/anaconda_env_1/</a></li>
+<li><a target="_blank" rel="noopener" href="https://chancoding.tistory.com/85#:~:text=%EB%98%90%ED%95%9C%2C%20%EB%8B%A4%EB%A5%B8%20%EC%BB%B4%ED%93%A8%ED%84%B0%20%ED%98%B9%EC%9D%80%20%EB%8B%A4%EB%A5%B8,%EB%A5%BC%20%EB%B0%A9%EC%A7%80%ED%95%A0%20%EC%88%98%20%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.">https://chancoding.tistory.com/85</a></li>
+</ul>
+<h1 id="Virtual-Environments-가상환경"><a href="#Virtual-Environments-가상환경" class="headerlink" title="[Virtual Environments] 가상환경"></a>[Virtual Environments] 가상환경</h1><h2 id="1-가상환경이란"><a href="#1-가상환경이란" class="headerlink" title="1. 가상환경이란?"></a>1. 가상환경이란?</h2><blockquote>
+<p>사용자가 컴퓨팅 환경과 다른 사용자의 작업 모두와 상호작용할 수 있는 네트워크 응용 프로그램이다. </p>
+</blockquote>
+<blockquote>
+<p>즉, 독립적인 환경에서 패키지 및 버전관리를 하기 위한 가상의 환경이다. </p>
+</blockquote>
+<h2 id="2-가상환경이-필요한-이유는"><a href="#2-가상환경이-필요한-이유는" class="headerlink" title="2. 가상환경이 필요한 이유는?"></a>2. 가상환경이 필요한 이유는?</h2><ul>
+<li>예를 들어, 하나의 환경인 Base를 기준으로 필요한 library들을 설치하다보면, 경고문구나 각 라이브러리들의 의존성 문제에 의해 여러 오류들을 접할 수 있다. </li>
+<li>따라서 하나의 프로젝트를 할 때 마다 다른 가상환경을 만들어 충돌을 줄이자는 의도에서 시작한 것으로 생각된다.</li>
+</ul>
+<h2 id="3-아나콘다-가상환경"><a href="#3-아나콘다-가상환경" class="headerlink" title="3. 아나콘다 가상환경"></a>3. 아나콘다 가상환경</h2><ul>
+<li>가상환경은 <code>virtualenv</code>와 <code>conda</code>를 사용한다. </li>
+<li>참고로 windows 10 기준으로 설명할 것이다. </li>
+</ul>
+<h3 id="3-1-가상환경-만들기"><a href="#3-1-가상환경-만들기" class="headerlink" title="3-1. 가상환경 만들기"></a>3-1. 가상환경 만들기</h3><ul>
+<li>Anaconda에서의 가상환경을 만들기 위해 아래와 같이 입력할 수 있다.</li>
+<li>특정 python 버전도 설치 가능하다.  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n 가상환경이름</span><br><span class="line">conda create -n 가상환경 이름 python&#x3D;(특정 버전)</span><br></pre></td></tr></table></figure></li>
+<li>가상환경을 활성화 한다. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate 가상환경이름</span><br><span class="line">activate 가상환경이름</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-2-가상환경-리스트"><a href="#3-2-가상환경-리스트" class="headerlink" title="3-2. 가상환경 리스트"></a>3-2. 가상환경 리스트</h3><ul>
+<li>아래의 명령어를 사용하여 가상환경을 나타낼 수 있다. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
+<img src="/hueman_images/conda/conda1.png"></li>
+<li>가상환경을 비활성화 시킬 수도 있다.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate 가상환경이름</span><br><span class="line">deactivate 가상환경이름</span><br><span class="line">deactivate</span><br></pre></td></tr></table></figure></li>
+<li>가상환경 삭제도 가능하다. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env remove -n 가상환경이름</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-3-가상환경에-라이브러리-설치"><a href="#3-3-가상환경에-라이브러리-설치" class="headerlink" title="3-3. 가상환경에 라이브러리 설치"></a>3-3. 가상환경에 라이브러리 설치</h3><ul>
+<li>필요한 라이브러리를 가상환경에 설치할 수 있다.<br><img src="/hueman_images/conda/conda2.png"></li>
+<li>설치된 라이브러리를 확인한다. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
+<img src="/hueman_images/conda/conda3.png"></li>
+</ul>
+<h3 id="3-4-라이브러리-패키지-관리"><a href="#3-4-라이브러리-패키지-관리" class="headerlink" title="3-4. 라이브러리(패키지) 관리"></a>3-4. 라이브러리(패키지) 관리</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>가상환경을 활성화 시킨 상태에서 위의 명령어를 실행한다. </p>
 </li>
-<li><p>list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\</p>
+<li><p>requirements.txt에 패키지의 목록과 버전 정보들이 존재한다. </p>
 </li>
-</ol>
-<p><em>why?</em> key값은 불변한 값만 올 수 있기 때문!<br>만약, tuple에 list가 들어있다면?<br>=&gt; key 값으로 사용 <strong>불가능</strong>함! </p>
-<ul>
-<li>참고) 문자열 또한 <strong>불변</strong>한 값이므로 dictionary의 key값으로 사용 가능하다.</li>
+<li><p>만약, 새로운 가상환경에 동일한 라이브러리를 구성해야된다고 가정해보면 아래의 명령을 사용해 새로운 가상환경에서도 requirements.txt의 내용대로 패키지를 설치할 수 있다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></li>
+<li><p>삭제도 가능하다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip uninstall -r requirements.txt</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="list-대신-tuple을-사용하는-이유는"><a href="#list-대신-tuple을-사용하는-이유는" class="headerlink" title="list 대신 tuple을 사용하는 이유는?"></a><em>list</em> 대신 <em>tuple</em>을 사용하는 이유는?</h2><h2 id="메모리-크기-비교"><a href="#메모리-크기-비교" class="headerlink" title="메모리 크기 비교"></a>메모리 크기 비교</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list_1 = [<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">tuple_1 = <span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">print</span>(sys.getsizeof(list_1))</span><br><span class="line"><span class="built_in">print</span>(sys.getsizeof(tuple_1))</span><br></pre></td></tr></table></figure>
-
-<pre><code>104
-88
-</code></pre>
-<ul>
-<li>tuple이 메모리를 차이하는 것이 더 작은 것을 볼 수 있다. </li>
-</ul>
-<h2 id="생성-속도"><a href="#생성-속도" class="headerlink" title="생성 속도"></a>생성 속도</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%timeit list_2=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>]</span><br><span class="line">%timeit tuple_2=<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>10000000 loops, best of 5: 57.5 ns per loop
-100000000 loops, best of 5: 16.4 ns per loop
-</code></pre>
-<ul>
-<li>tuple의 생성속도가 더 빠른 것을 확인할 수 있다.</li>
-</ul>
-<h2 id="인덱싱-속도"><a href="#인덱싱-속도" class="headerlink" title="인덱싱 속도"></a>인덱싱 속도</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list_3=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">%timeit list_3[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">tuple_3=<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span></span><br><span class="line">%timeit tuple_3[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-<pre><code>10000000 loops, best of 5: 43 ns per loop
-10000000 loops, best of 5: 42.8 ns per loop
-</code></pre>
-<p>tuple이 list보다 indexing 으로 데이터에 접근하는 속도가 더 빠르다. </p>
-<h2 id="결과"><a href="#결과" class="headerlink" title="결과"></a>결과</h2><ul>
-<li>메모리 크기비교, 생성속도, 인덱싱 속도에서 모두 tuple의 결과가 더 빠른것을 확인 할 수 있었다. </li>
-</ul>
-<h3 id="출처"><a href="#출처" class="headerlink" title="출처"></a>출처</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://codacoding.tistory.com/36">https://codacoding.tistory.com/36</a></li>
-<li><a target="_blank" rel="noopener" href="https://itholic.github.io/python-list-tuple/">https://itholic.github.io/python-list-tuple/</a></li>
+<h3 id="3-5-가상환경-복사하기"><a href="#3-5-가상환경-복사하기" class="headerlink" title="3-5. 가상환경 복사하기"></a>3-5. 가상환경 복사하기</h3><ul>
+<li>기존 가상환경과 똑같은 환경으로 복사할 수도 있다. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n 복사된것 --clone 복사할것</span><br></pre></td></tr></table></figure></li>
 </ul>
 
         </div>
@@ -274,7 +286,7 @@
 
 
 
-    <a data-url="https://eunjin-jun717.github.io/2021/04/06/Python/speed_list_tuple/" data-id="ckpm1lxtz0000vsvtfa1vcsag" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://eunjin-jun717.github.io/2021/06/09/conda/virtualenv/" data-id="ckposam9k0000ksvtac074yn3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -344,22 +356,25 @@
             "@type": "Person",
             "name": "Eunjin Jun"
         },
-        "headline": "[Python] List vs Tuple",
-        "image": "https://eunjin-jun717.github.io",
-        "keywords": "python",
+        "headline": "[virtual enviroments] Anaconda 가상환경",
+        "image": "https://eunjin-jun717.github.io/hueman_images/conda/conda1.png",
+        "keywords": "conda",
         "genre": "",
-        "datePublished": "2021-04-06",
-        "dateCreated": "2021-04-06",
-        "dateModified": "2021-04-26",
-        "url": "https://eunjin-jun717.github.io/2021/04/06/Python/speed_list_tuple/",
-        "description": "List vs Tuple in python차이점
-list는 mutable 즉, 생성된 후에 변경 가능하다.tuple은 immutable 즉, 생성된 후에 변경이 불가능하다. 
+        "datePublished": "2021-06-09",
+        "dateCreated": "2021-06-09",
+        "dateModified": "2021-06-09",
+        "url": "https://eunjin-jun717.github.io/2021/06/09/conda/virtualenv/",
+        "description": "references
 
-list는 dictionary의 key값으로 쓸 수 없지만 tuple은 가능하다.\
+https://yganalyst.github.io/pythonic/anaconda_env_1/
+https://chancoding.tistory.com/85
+
+[Virtual Environments] 가상환경1. 가상환경이란?
+사용자가 컴퓨팅 환경과 다른 사용자의 작업 모두와 상호작용할 수 있는 네트워크 응용 프로그램이다. 
 
 
-why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 들어있다면?=",
-        "wordCount": 248
+즉, 독",
+        "wordCount": 329
     }
 </script>
 
@@ -440,20 +455,10 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
         
 <nav id="article-nav">
     
-        <a href="/2021/04/07/Python/Visualization_Python/spines_grids/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [Python]시각화 코드 실습
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2021/04/06/Python/Visualization_Python/hexo_python/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/06/08/Hexo/hexo%20(1)/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[Python]시각화 블로그 연습</p>
+        <p class="article-nav-title">[Hexo] 블로그 꾸미기</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -663,7 +668,7 @@ why? key값은 불변한 값만 올 수 있기 때문!만약, tuple에 list가 �
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://eunjin-jun717.github.io/2021/04/06/Python/speed_list_tuple/';
+    var disqus_url = 'https://eunjin-jun717.github.io/2021/06/09/conda/virtualenv/';
     
     (function() {
     var dsq = document.createElement('script');
